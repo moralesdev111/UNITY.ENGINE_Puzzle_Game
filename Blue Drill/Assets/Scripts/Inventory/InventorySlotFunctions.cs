@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -38,11 +39,20 @@ public class InventorySlotFunctions : MonoBehaviour
     }
 
     private void RemoveItemFromInventory(Item item, List<Item> list)
+{
+    if (item != null)
     {
-        if (item != null)
-        {
-            Inventory.Instance.RemoveItemFromList(item, list);
-            ClearItem(); // Optionally clear the slot after removing the item
-        }
+        Inventory.Instance.RemoveItemFromList(item, list);
+        ClearItem();
+
+        // Optionally, delay the UI update to the next frame
+        StartCoroutine(DelayedUIUpdate());
     }
+}
+
+IEnumerator DelayedUIUpdate()
+{
+    yield return null;
+    Inventory.Instance.uiChangeTriggered?.Invoke();
+}
 }

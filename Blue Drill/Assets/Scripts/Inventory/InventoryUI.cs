@@ -24,14 +24,29 @@ public class InventoryUI : MonoBehaviour
             GameObject slotObject = Instantiate(slotPrefab, itemsParent);
             slots[i] = slotObject.GetComponent<InventorySlotFunctions>();
         }
+
+        // Ensure all slots are cleared initially
+        ClearAllSlots();
     }
 
     void UpdateUI()
     {
+        // Clear all slots before updating to ensure consistency
+        ClearAllSlots();
+
         // Update the UI with items if they exist in the inventory
         for (int i = 0; i < inventory.items.Count && i < slots.Length; i++)
         {
             slots[i].UpdateSlotUIOnNewItem(inventory.items[i]);
+        }
+    }
+
+    // Clear all slots in the UI
+    void ClearAllSlots()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].ClearItem();
         }
     }
 }
