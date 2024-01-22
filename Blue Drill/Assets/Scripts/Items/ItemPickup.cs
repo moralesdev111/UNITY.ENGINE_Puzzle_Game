@@ -8,7 +8,7 @@ public class ItemPickup: MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            if(!Inventory.Instance.Add(item))
+            if(!Inventory.Instance.AddItemToList(item, Inventory.Instance.items))
             {
                 Debug.Log("Inventory FULL");
                 return;

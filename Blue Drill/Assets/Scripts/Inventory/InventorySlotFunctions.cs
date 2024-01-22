@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class InventorySlotFunctions : MonoBehaviour
     public Item item;
 
     public Button removeButton; // Reference to the button
+    public Button activeButton;
 
     public void UpdateSlotUIOnNewItem(Item newItem)
     {
@@ -24,7 +26,7 @@ public class InventorySlotFunctions : MonoBehaviour
     private void SetupRemoveButtonListener()
     {
         removeButton.onClick.RemoveAllListeners();
-        removeButton.onClick.AddListener(RemoveItemFromInventory);
+        removeButton.onClick.AddListener(() => RemoveItemFromInventory(item, Inventory.Instance.items));
     }
 
     public void ClearItem()
@@ -35,11 +37,11 @@ public class InventorySlotFunctions : MonoBehaviour
         removeButton.onClick.RemoveAllListeners(); // Remove any existing listeners
     }
 
-    private void RemoveItemFromInventory()
+    private void RemoveItemFromInventory(Item item, List<Item> list)
     {
         if (item != null)
         {
-            Inventory.Instance.Remove(item);
+            Inventory.Instance.RemoveItemFromList(item, list);
             ClearItem(); // Optionally clear the slot after removing the item
         }
     }

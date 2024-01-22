@@ -549,6 +549,7 @@ MonoBehaviour:
   itemName: {fileID: 4741857804237208785}
   item: {fileID: 0}
   removeButton: {fileID: 5575443348238210673}
+  activeButton: {fileID: 2049245246030479012}
 --- !u!1 &8910624241154460133
 GameObject:
   m_ObjectHideFlags: 0

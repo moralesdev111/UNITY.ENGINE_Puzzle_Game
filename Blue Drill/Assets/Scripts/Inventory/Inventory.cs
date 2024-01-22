@@ -19,18 +19,18 @@ public class Inventory : MonoBehaviour
     #endregion
     public int space = 6;
     public List<Item> items = new List<Item>();
-
+    public List<Item> activeItem = new List<Item>();
     public delegate void OnItemChanged();
     public OnItemChanged uiChangeTriggered;
 
-    public bool Add(Item item)
+    public bool AddItemToList(Item item, List<Item> list)
     {
-        if (items.Count >= space)
+        if (list.Count >= space)
         {
             Debug.Log("Inventory Full"); 
             return false;           
         }
-        items.Add(item);
+        list.Add(item);
 
         if (uiChangeTriggered != null)
         {
@@ -39,11 +39,14 @@ public class Inventory : MonoBehaviour
         return true;      
     }
 
-    public void Remove(Item item)
+    public void RemoveItemFromList(Item item, List<Item> list)
     {
-        items.Remove(item);
+        list.Remove(item);
 
         if (uiChangeTriggered != null)
+        {
             uiChangeTriggered.Invoke();
+        }
+            
     }
 }
