@@ -13,6 +13,9 @@ public class InventorySlotFunctions : MonoBehaviour
     public Button removeButton; // Reference to the button
     public Button activeButton;
 
+    private void Start(){
+        activeButton.onClick.AddListener(ActiveButtonFunctionaility);
+    }
     public void UpdateSlotUIOnNewItem(Item newItem)
     {
         ClearItem();
@@ -44,15 +47,32 @@ public class InventorySlotFunctions : MonoBehaviour
     {
         Inventory.Instance.RemoveItemFromList(item, list);
         ClearItem();
-
+        Inventory.Instance.uiChangeTriggered?.Invoke();
         // Optionally, delay the UI update to the next frame
-        StartCoroutine(DelayedUIUpdate());
+      
     }
 }
 
-IEnumerator DelayedUIUpdate()
+    private void ActiveButtonFunctionaility()
 {
-    yield return null;
-    Inventory.Instance.uiChangeTriggered?.Invoke();
+    Debug.Log("Active button pressed");
+    if (Inventory.Instance.activeItem.Count == 0)
+    {
+        Inventory.Instance.items.Remove(item);
+        Inventory.Instance.activeItem.Add(item);
+        Inventory.Instance.uiChangeTriggered?.Invoke();
+
+        // Update the active item slot
+        return;
+    }
+    else
+    {
+        Debug.Log("Inventory Full bro");
+    }
+
 }
 }
+
+
+
+
