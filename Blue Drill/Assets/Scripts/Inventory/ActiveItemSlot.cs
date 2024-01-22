@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActiveItem : MonoBehaviour
+public class ActiveItemSlot : MonoBehaviour
 {
-
 public Image activeItemSprite;
 public Button removeActiveItemButton;
-public Item activeitem;
+private Item activeitem;
 
 private void Start()
 {
@@ -22,7 +21,6 @@ public void SetActiveItem(Item item)
 private void RemoveButtonFunctionality()
 {
     activeItemSprite.sprite = null;
-    Debug.Log("Remove button pressed");
     
     Inventory.Instance.items.Add(activeitem);
     Inventory.Instance.activeItem.Clear();

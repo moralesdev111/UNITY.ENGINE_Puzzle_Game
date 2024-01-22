@@ -9,17 +9,14 @@ public class InventorySlotFunctions : MonoBehaviour
     public Image itemSprite;
     public TextMeshProUGUI itemName;
     public Item item;
-
     public Button deleteButton; // Reference to the button
-   public Button activeButton;
-
-    private ActiveItem activeItemScript;
+    public Button activeButton;
+    private ActiveItemSlot activeItemScript;
    
      private void Start()
      {
         activeButton.onClick.AddListener(ActiveButtonFunctionaility);
-         activeItemScript = FindObjectOfType<ActiveItem>();
-        
+        activeItemScript = FindObjectOfType<ActiveItemSlot>();        
     }
 
     
@@ -30,11 +27,8 @@ public class InventorySlotFunctions : MonoBehaviour
         itemSprite.sprite = item.itemSprite;
         itemName.text = item.name;
 
-
-
         // Add an onClick listener to the button to call RemoveItemFromInventory
         SetupRemoveButtonListener();
-
     }
 
     private void SetupRemoveButtonListener()
@@ -57,15 +51,12 @@ public class InventorySlotFunctions : MonoBehaviour
     {
         Inventory.Instance.RemoveItemFromList(item, list);
         ClearItem();
-        Inventory.Instance.uiChangeTriggered?.Invoke();
-        // Optionally, delay the UI update to the next frame
-      
+        Inventory.Instance.uiChangeTriggered?.Invoke();  
     }
 }
 
 private void ActiveButtonFunctionaility()
 {
-    Debug.Log("Active button pressed");
     if (Inventory.Instance.activeItem.Count == 0)
     {
         if (activeItemScript != null)
@@ -76,8 +67,6 @@ private void ActiveButtonFunctionaility()
         Inventory.Instance.activeItem.Add(item);
         activeItemScript.SetActiveItem(item);
         Inventory.Instance.uiChangeTriggered?.Invoke();
-
-        
 
         // Update the active item slot
         return;

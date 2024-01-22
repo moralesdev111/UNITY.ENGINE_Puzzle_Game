@@ -46,7 +46,6 @@ public class Inventory : MonoBehaviour
         if (uiChangeTriggered != null)
         {
             uiChangeTriggered.Invoke();
-        }
-            
+        }            
     }
 }
