@@ -1,11 +1,10 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     #region Singleton
-    
+
     public static Inventory Instance;
     private void Awake()
     {
@@ -22,7 +21,7 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>();
 
     public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
+    public OnItemChanged uiChangeTriggered;
 
     public bool Add(Item item)
     {
@@ -33,9 +32,9 @@ public class Inventory : MonoBehaviour
         }
         items.Add(item);
 
-        if (onItemChangedCallback != null)
+        if (uiChangeTriggered != null)
         {
-            onItemChangedCallback.Invoke();
+            uiChangeTriggered.Invoke();
         }      
         return true;      
     }
@@ -43,8 +42,8 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
-        
-        if (onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
+
+        if (uiChangeTriggered != null)
+            uiChangeTriggered.Invoke();
     }
 }

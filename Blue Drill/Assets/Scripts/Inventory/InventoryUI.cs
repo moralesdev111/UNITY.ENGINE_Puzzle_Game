@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventory = Inventory.Instance;
-        inventory.onItemChangedCallback += UpdateUI;
+        inventory.uiChangeTriggered += UpdateUI;
         InitializeInventorySlots(); // Call a separate method to initialize slots.
     }
 
