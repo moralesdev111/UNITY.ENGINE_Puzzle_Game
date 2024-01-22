@@ -10,12 +10,19 @@ public class InventorySlotFunctions : MonoBehaviour
     public TextMeshProUGUI itemName;
     public Item item;
 
-    public Button removeButton; // Reference to the button
-    public Button activeButton;
+    public Button deleteButton; // Reference to the button
+   public Button activeButton;
 
-    private void Start(){
+    private ActiveItem activeItemScript;
+   
+     private void Start()
+     {
         activeButton.onClick.AddListener(ActiveButtonFunctionaility);
+         activeItemScript = FindObjectOfType<ActiveItem>();
+        
     }
+
+    
     public void UpdateSlotUIOnNewItem(Item newItem)
     {
         ClearItem();
@@ -23,14 +30,17 @@ public class InventorySlotFunctions : MonoBehaviour
         itemSprite.sprite = item.itemSprite;
         itemName.text = item.name;
 
+
+
         // Add an onClick listener to the button to call RemoveItemFromInventory
         SetupRemoveButtonListener();
+
     }
 
     private void SetupRemoveButtonListener()
     {
-        removeButton.onClick.RemoveAllListeners();
-        removeButton.onClick.AddListener(() => RemoveItemFromInventory(item, Inventory.Instance.items));
+        deleteButton.onClick.RemoveAllListeners();
+        deleteButton.onClick.AddListener(() => RemoveItemFromInventory(item, Inventory.Instance.items));
     }
 
     public void ClearItem()
@@ -38,7 +48,7 @@ public class InventorySlotFunctions : MonoBehaviour
         item = null;
         itemSprite.sprite = null;
         itemName.text = string.Empty;
-        removeButton.onClick.RemoveAllListeners(); // Remove any existing listeners
+        deleteButton.onClick.RemoveAllListeners(); // Remove any existing listeners
     }
 
     private void RemoveItemFromInventory(Item item, List<Item> list)
@@ -53,14 +63,21 @@ public class InventorySlotFunctions : MonoBehaviour
     }
 }
 
-    private void ActiveButtonFunctionaility()
+private void ActiveButtonFunctionaility()
 {
     Debug.Log("Active button pressed");
     if (Inventory.Instance.activeItem.Count == 0)
     {
+        if (activeItemScript != null)
+        {
+            activeItemScript.SetActiveItem(item);
+        }
         Inventory.Instance.items.Remove(item);
         Inventory.Instance.activeItem.Add(item);
+        activeItemScript.SetActiveItem(item);
         Inventory.Instance.uiChangeTriggered?.Invoke();
+
+        
 
         // Update the active item slot
         return;
@@ -71,6 +88,10 @@ public class InventorySlotFunctions : MonoBehaviour
     }
 
 }
+
+
+
+    
 }
 
 

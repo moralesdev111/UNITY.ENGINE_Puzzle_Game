@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 7647787550934962670}
   - component: {fileID: 5575443348238210673}
   m_Layer: 0
-  m_Name: Remove
+  m_Name: DeleteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
   itemSprite: {fileID: 632229147817027567}
   itemName: {fileID: 4741857804237208785}
   item: {fileID: 0}
-  removeButton: {fileID: 5575443348238210673}
+  deleteButton: {fileID: 5575443348238210673}
   activeButton: {fileID: 2049245246030479012}
 --- !u!1 &8910624241154460133
 GameObject:
