@@ -3471,7 +3471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951528005}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2649091, y: -0.66298157, z: 0.27225083, w: 0.64510316}
+  m_LocalRotation: {x: 0.2652467, y: -0.66218066, z: 0.27192187, w: 0.6459253}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3718,8 +3718,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27656862, y: -0.6579334, z: 0.28423345, w: 0.6401912}
-  m_LocalPosition: {x: -14.052614, y: 8, z: -6.968689}
+  m_LocalRotation: {x: 0.27692106, y: -0.6571386, z: 0.2838901, w: 0.641007}
+  m_LocalPosition: {x: -22.602161, y: 8, z: -7.526053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4191,7 +4191,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1859960661}
         m_TargetAssemblyTypeName: Laptop, Assembly-CSharp
-        m_MethodName: ExitLaptopUI
+        m_MethodName: ExitLaptopUIButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5160,7 +5160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282295070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2765686, y: -0.6579334, z: 0.28423345, w: 0.6401912}
+  m_LocalRotation: {x: 0.27692103, y: -0.65713865, z: 0.28389004, w: 0.64100707}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7452,7 +7452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2881676, y: -0.6526545, z: 0.29615387, w: 0.63505465}
+  m_LocalRotation: {x: 0.2885348, y: -0.65186614, z: 0.29579613, w: 0.6358639}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8414,6 +8414,7 @@ GameObject:
   - component: {fileID: 1859960659}
   - component: {fileID: 1859960658}
   - component: {fileID: 1859960661}
+  - component: {fileID: 1859960662}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Untagged
@@ -8519,8 +8520,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05afb3566170f4e42af7c3004fa1260d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNumber: 0
   playerStates: {fileID: 1131483088}
-  laptopCanvas: {fileID: 294338946}
+  LaptopCanvas: {fileID: 294338946}
+  laptopStates: {fileID: 1859960662}
+--- !u!114 &1859960662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859960656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568f739a75891914c89569fc96de8b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laptop: {fileID: 1859960661}
+  timer: 0
+  currentState: 0
 --- !u!1 &1869813277
 GameObject:
   m_ObjectHideFlags: 0
@@ -8688,7 +8706,7 @@ Transform:
   m_GameObject: {fileID: 1874187999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.052614, y: 8, z: -6.968689}
+  m_LocalPosition: {x: -22.602161, y: 8, z: -7.526053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9556,7 +9574,7 @@ PrefabInstance:
       objectReference: {fileID: 963194228}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.05
+      value: -29.6
       objectReference: {fileID: 0}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9564,7 +9582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.16
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9602,6 +9620,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4403484362182625253, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+      propertyPath: playerStateActions
+      value: 
+      objectReference: {fileID: 1131483089}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9676,14 +9698,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
-  - {fileID: 566833501}
   - {fileID: 981832948}
-  - {fileID: 3790099376580661533}
-  - {fileID: 1124233658}
-  - {fileID: 1349309193}
-  - {fileID: 925633036}
-  - {fileID: 1778495533}
-  - {fileID: 1097556753}
-  - {fileID: 1969486222}
-  - {fileID: 1204397818}
+  - {fileID: 566833501}
   - {fileID: 1923525082}
+  - {fileID: 1969486222}
+  - {fileID: 1124233658}
+  - {fileID: 3790099376580661533}
+  - {fileID: 1778495533}
+  - {fileID: 1349309193}
+  - {fileID: 1204397818}
+  - {fileID: 925633036}
+  - {fileID: 1097556753}

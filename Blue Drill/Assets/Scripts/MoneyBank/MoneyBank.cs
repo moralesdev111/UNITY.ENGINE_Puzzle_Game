@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class MoneyBank : Bank
 {
+    [Header("References")]
     [SerializeField] TextMeshProUGUI moneyText;
-     [SerializeField] TextMeshProUGUI laptopMoneyText;
-     [SerializeField] TextMeshProUGUI pendingTransactionsText;
+    [SerializeField] TextMeshProUGUI laptopMoneyText;
+    [SerializeField] TextMeshProUGUI pendingTransactionsText;
     [SerializeField] Image moneyBankCanvas;
-    //[SerializeField] Button acceptTransactionButton;
+    
 
     public int pendingBalance = 0;
 
     private void Awake()
-    {
-       // acceptTransactionButton.onClick.AddListener(ResetPendingBalanceAndAddToNormalBalance);
-    moneyBankCanvas.gameObject.SetActive(true);
+    {    
+        moneyBankCanvas.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -39,7 +39,7 @@ public class MoneyBank : Bank
 
     public void ResetPendingBalanceAndAddToNormalBalance()
     {
-        currentBalance +=pendingBalance;
+        currentBalance += pendingBalance;
         pendingBalance = 0;
     }
 

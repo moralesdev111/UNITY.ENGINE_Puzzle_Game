@@ -11,12 +11,7 @@ public class PlayerStateActions : MonoBehaviour
     [SerializeField] Canvas miniGameCanvas;
  
 
-    void Update()
-    {
-        StateActions();
-    }
-
-    private void StateActions()
+    public void StateActions()
     {
         if(playerStates.currentState == PlayerStates.States.idle)
         {
@@ -28,8 +23,9 @@ public class PlayerStateActions : MonoBehaviour
         }
         if(playerStates.currentState == PlayerStates.States.minigame)
         {
-            miniGameCanvas.gameObject.SetActive(true);
             playerInputs.direction = new Vector3(0,0,0);
+            miniGameCanvas.gameObject.SetActive(true);
+            
         }
         if(playerStates.currentState == PlayerStates.States.freezingUI)
         {
