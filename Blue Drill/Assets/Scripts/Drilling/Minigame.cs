@@ -9,6 +9,8 @@ public class Minigame : MonoBehaviour
     [SerializeField] Drill drill;
     [SerializeField] Oil oil;
     [SerializeField] Slider progressBarContainer;
+    [SerializeField] OilBank oilBank;
+ 
 
     [Header("Setting MiniGame")]
     public Transform topPivot;
@@ -16,6 +18,7 @@ public class Minigame : MonoBehaviour
     [SerializeField] float failTimer = 12f;
     private float drillProgress;    
     private PlayerStates playerStates; 
+    public bool gameInprogress = false;
 
     void Start()
     {
@@ -46,6 +49,7 @@ public class Minigame : MonoBehaviour
             failTimer -= Time.deltaTime;
             if(failTimer < 0f)
             {
+                gameInprogress = false;
                 this.gameObject.SetActive(false);
                 playerStates.currentState = PlayerStates.States.idle;
                 failTimer = 12f;
@@ -55,9 +59,11 @@ public class Minigame : MonoBehaviour
         }
         if(drillProgress >= 1f)
         {
+            gameInprogress = false;
             this.gameObject.SetActive(false);
             playerStates.currentState = PlayerStates.States.idle;
             drillProgress = 0;
+            oilBank.AddOil(oilBank.basereward);
             return;
         }
         drillProgress = Mathf.Clamp(drillProgress, 0f, 1f);
