@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerStates : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] PlayerInputs playerInputs;
+
     public enum States
     {
         idle,
         walking,
         minigame,
+        freezingUI
     }
 
     public States currentState;
@@ -31,7 +34,9 @@ public class PlayerStates : MonoBehaviour
                 nextState = States.idle;
             }
             break;
-            case States.minigame:
+            case States.minigame:            
+            break;
+            case States.freezingUI:            
             break;
         }
         currentState = nextState;

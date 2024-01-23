@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class OilBank : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI oilText;
     public int currentOil;
     public int basereward = 15;
+    
+    [Header("References")]
+    [SerializeField] TextMeshProUGUI oilText;
+    
+
+
     void Start()
     {
         currentOil = 0;

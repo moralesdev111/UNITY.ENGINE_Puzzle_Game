@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TriggerMinigame : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] GameObject startDrillingCanvas;
     [SerializeField] Minigame minigame;
 

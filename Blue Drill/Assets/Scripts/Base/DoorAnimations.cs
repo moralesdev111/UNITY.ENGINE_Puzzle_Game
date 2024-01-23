@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DoorAnimations : MonoBehaviour
 {
+    
+    [Header("References")]
     [SerializeField] Animator animator;
+
+    
     void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.CompareTag("Player"))

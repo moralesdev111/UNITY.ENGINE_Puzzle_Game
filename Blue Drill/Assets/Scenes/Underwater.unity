@@ -676,7 +676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &294338947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3687,7 +3687,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStates: {fileID: 1131483088}
+  playerInputs: {fileID: 1131483092}
   miniGameCanvas: {fileID: 1675573969}
+--- !u!114 &1131483092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8173181232098772907, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+  m_PrefabInstance: {fileID: 3790099376580661533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724982300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a34fbda8460684685e5cf7c8b7e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135920936
 GameObject:
   m_ObjectHideFlags: 0
@@ -5790,7 +5802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1702535519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6808,7 +6820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05afb3566170f4e42af7c3004fa1260d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laptopCanvas: {fileID: 1702535518}
+  playerStates: {fileID: 1131483088}
+  laptopCanvas: {fileID: 294338946}
 --- !u!1 &1869813277
 GameObject:
   m_ObjectHideFlags: 0
