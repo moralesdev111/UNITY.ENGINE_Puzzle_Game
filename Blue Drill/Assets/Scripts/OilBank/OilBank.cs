@@ -3,33 +3,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class OilBank : MonoBehaviour
+public class OilBank : Bank
 {
-    public int currentOil;
-    public int basereward = 15;
-    
     [Header("References")]
     [SerializeField] TextMeshProUGUI oilText;
     
 
-
     void Start()
     {
-        currentOil = 0;
+        currentBalance = 0;
     }
 
     void Update()
     {
-        oilText.text = "Oil: " + currentOil.ToString();
+        oilText.text = "Oil: " + currentBalance.ToString();
     }
 
-    public int AddOil(int amount)
+    public override int AddToBank(int amount)
     {
-        return currentOil+= amount;
+        return currentBalance+= amount;
     }
 
-    public int ResetOil()
-    {
-        return currentOil = 0;
-    }
+    
 }

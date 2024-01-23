@@ -10,6 +10,7 @@ public class Minigame : MonoBehaviour
     [SerializeField] Oil oil;
     [SerializeField] Slider progressBarContainer;
     [SerializeField] OilBank oilBank;
+    [SerializeField] MoneyBank moneyBank;
  
 
     [Header("Setting MiniGame")]
@@ -19,6 +20,7 @@ public class Minigame : MonoBehaviour
     private float drillProgress;    
     private PlayerStates playerStates; 
     public bool gameInprogress = false;
+    private int reward = 15;
 
     void Start()
     {
@@ -63,7 +65,8 @@ public class Minigame : MonoBehaviour
             this.gameObject.SetActive(false);
             playerStates.currentState = PlayerStates.States.idle;
             drillProgress = 0;
-            oilBank.AddOil(oilBank.basereward);
+            moneyBank.AddToBank(reward);
+            oilBank.AddToBank(reward);
             return;
         }
         drillProgress = Mathf.Clamp(drillProgress, 0f, 1f);
