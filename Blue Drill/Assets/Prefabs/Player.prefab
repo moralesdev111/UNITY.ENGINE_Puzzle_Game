@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e10611f21357f4a969815befa0fd0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e10611f21357f4a969815befa0fd0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94,7 +94,7 @@ PrefabInstance:
       addedObject: {fileID: 4403484362182625253}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51e10611f21357f4a969815befa0fd0c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2592610231628777178}
+      addedObject: {fileID: 5960720922752032716}
   m_SourcePrefab: {fileID: 100100000, guid: 51e10611f21357f4a969815befa0fd0c, type: 3}
 --- !u!1 &2051308808226145374 stripped
 GameObject:
@@ -120,7 +120,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.5
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -172,33 +172,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 99069546030053656}
---- !u!54 &2592610231628777178
-Rigidbody:
+  playerStates: {fileID: 5960720922752032716}
+--- !u!114 &5960720922752032716
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051308808226145374}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ad798f0d364bf4aa95a0ad4c21c18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputs: {fileID: 8173181232098772907}
+  currentState: 0
 --- !u!95 &4745749497932317854 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 51e10611f21357f4a969815befa0fd0c, type: 3}

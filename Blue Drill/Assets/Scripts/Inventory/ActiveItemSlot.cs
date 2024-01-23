@@ -5,7 +5,7 @@ public class ActiveItemSlot : MonoBehaviour
 {
 public Image activeItemSprite;
 public Button removeActiveItemButton;
-private Item activeitem;
+public Item activeitem;
 
 private void Start()
 {
