@@ -6,9 +6,16 @@ public class ActiveItemSlot : MonoBehaviour
 public Image activeItemSprite;
 public Button removeActiveItemButton;
 public Item activeitem;
+[SerializeField] Image activeItemCanvas;
 
+
+private void Awake()
+{
+    activeItemCanvas.gameObject.SetActive(true);
+}
 private void Start()
 {
+    
     removeActiveItemButton.onClick.AddListener(RemoveButtonFunctionality);
 }
 

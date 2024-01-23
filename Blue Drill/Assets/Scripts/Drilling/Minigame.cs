@@ -5,106 +5,85 @@ using UnityEngine.UI;
 
 public class Minigame : MonoBehaviour
 {
-    [Header("Setting MiniGame")]
-    [SerializeField] Transform topPivot;
-    [SerializeField] Transform bottomPivot;
-    [SerializeField] Transform oil;
-    
-    [Header("Oil Speed Controls")]
-    [SerializeField] float timerMultiplicator = 3f;
-    [SerializeField] float smoothMotion = 1f;
-    private float oilSpeed;
-    private float oilPosition;
-    private float oilDestination;
-    private float oilTimer;
-    
-    [Header("Drill Controls")]
-    [SerializeField] Transform drill;
-    private float drillPosition;
-    [SerializeField] float drillPower = 0.5f;
-    private float drillProgress;
-    private float drillPullVelocity;
-    [SerializeField] float drillPullPower = 0.01f;
-    [SerializeField] float drillGravityPower = 0.005f;
-    [SerializeField] float drillProgressDegradationPower = 0.1f;
+    [Header("References")]
+    [SerializeField] Drill drill;
+    [SerializeField] Oil oil;
     [SerializeField] Slider progressBarContainer;
-    [SerializeField] float failTimer = 15f;
 
+    [Header("Setting MiniGame")]
+    public Transform topPivot;
+    public Transform bottomPivot;
+    [SerializeField] float failTimer = 12f;
+    private float drillProgress;    
+    private PlayerStates playerStates; 
+
+    void Start()
+    {
+        playerStates = FindObjectOfType<PlayerStates>();
+    }
 
     void Update()
     {
-        Oil();
-        Drill();
+        oil.Move();
+        drill.Move();
         ProgressCheck();
     }
 
     private void ProgressCheck()
-{
-    progressBarContainer.value = drillProgress;
-
-    float min = drillPosition - 0.1f / 1.7f; // Adjusted minimum based on drill dimensions
-    float max = drillPosition + 0.1f / 1.3f; // Adjusted maximum based on drill dimensions
-
-    if (min < oilPosition && oilPosition < max)
     {
-        drillProgress += drillPower * Time.deltaTime;
+        progressBarContainer.value = drillProgress;
+
+        float min = drill.drillPosition - 0.1f / 1.7f; // Adjusted minimum based on drill dimensions
+        float max = drill.drillPosition + 0.1f / 1.3f; // Adjusted maximum based on drill dimensions
+
+        if (min < oil.oilPosition && oil.oilPosition < max)
+        {
+            drillProgress += drill.drillPower * Time.deltaTime;
+        }
+        else
+        {
+            drillProgress -= drill.drillProgressDegradationPower * Time.deltaTime;
+            failTimer -= Time.deltaTime;
+            if(failTimer < 0f)
+            {
+                this.gameObject.SetActive(false);
+                playerStates.currentState = PlayerStates.States.idle;
+                failTimer = 12f;
+                drillProgress = 0;
+                return;
+            }
+        }
+        if(drillProgress >= 1f)
+        {
+            this.gameObject.SetActive(false);
+            playerStates.currentState = PlayerStates.States.idle;
+            drillProgress = 0;
+            return;
+        }
+        drillProgress = Mathf.Clamp(drillProgress, 0f, 1f);
     }
-    else
+    
+    
+
+    /*private void SuccessfullDrill()
     {
-        drillProgress -= drillProgressDegradationPower * Time.deltaTime;
-        failTimer -= Time.deltaTime;
-        if(failTimer < 0f)
-        {
-            Lose();
-        }
-    }
-    if(drillProgress >= 1f){
-        SuccessfullDrill();
-    }
-
-    drillProgress = Mathf.Clamp(drillProgress, 0f, 1f);
-}
-    private void Drill()
-    {
-
-        if(Input.GetMouseButton(0))
-        {
-            drillPullVelocity += drillPullPower * Time.deltaTime;
-        }
-        drillPullVelocity -= drillGravityPower * Time.deltaTime;
-
-        drillPosition += drillPullVelocity;
-
-        if(drillPosition - 0.1f / 1.7f<= 0f && drillPullVelocity <0f)
-        {
-            drillPullVelocity = 0f;
-        }
-        if(drillPosition + 0.1f / 1.7f>= 1f && drillPullVelocity >0f)
-        {
-            drillPullVelocity = 0f;
-        }
-        drillPosition = Mathf.Clamp(drillPosition, 0.1f / 1.7f, 1 - 0.1f / 1.3f);
-        drill.position = Vector3.Lerp(bottomPivot.position,topPivot.position,drillPosition);
-    }
-    private void Oil()
-    {
-        oilTimer -= Time.deltaTime;
-        if (oilTimer < 0f)
-        {
-            oilTimer = Random.value * timerMultiplicator;
-
-            oilDestination = Random.value;
-        }
-        oilPosition = Mathf.SmoothDamp(oilPosition, oilDestination, ref oilSpeed, smoothMotion);
-        oil.position = Vector3.Lerp(bottomPivot.position, topPivot.position, oilPosition);
-    }
-
-    private void SuccessfullDrill()
-    {
-        Debug.Log("You win!");
+        Debug.Log("You win! Closing Soon.");
     }
     private void Lose()
     {
-        Debug.Log("You lose");
+        Debug.Log("You lose!! Closing Soon.");
     }
+    IEnumerator ExitMiniGameSuccessFul()
+    {
+        SuccessfullDrill();
+        yield return new WaitForSeconds(3f);
+        
+        this.gameObject.SetActive(false);
+    }
+    IEnumerator ExitMiniGameFail()
+    {
+        Lose();
+        yield return new WaitForSeconds(3);
+        this.gameObject.SetActive(false);
+    }*/
 }

@@ -7,6 +7,7 @@ public class TriggerMinigame : MonoBehaviour
     void OnTriggerStay(Collider collider)
     {
         ActiveItemSlot activeItemSlot = FindObjectOfType<ActiveItemSlot>();
+        PlayerStates playerStates = collider.GetComponent<PlayerStates>();
 
         if (activeItemSlot != null)
         {            
@@ -16,7 +17,8 @@ public class TriggerMinigame : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.Z))
                     {
-                         Debug.Log("Game Started");
+                         Debug.Log("Game Started"); // trigger minigame player state
+                         playerStates.currentState = PlayerStates.States.minigame;
                     }
                 }                           
             }     

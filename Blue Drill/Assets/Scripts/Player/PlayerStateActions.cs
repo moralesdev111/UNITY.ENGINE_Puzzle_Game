@@ -7,10 +7,7 @@ public class PlayerStateActions : MonoBehaviour
 {
     [SerializeField] PlayerStates playerStates;
     [SerializeField] Canvas miniGameCanvas;
-    void Start()
-    {
-        
-    }
+ 
 
     void Update()
     {
@@ -22,11 +19,11 @@ public class PlayerStateActions : MonoBehaviour
 
         if(playerStates.currentState == PlayerStates.States.idle)
         {
-
+           
         }
         if(playerStates.currentState == PlayerStates.States.walking)
         {
-
+            
         }
         if(playerStates.currentState == PlayerStates.States.minigame)
         {

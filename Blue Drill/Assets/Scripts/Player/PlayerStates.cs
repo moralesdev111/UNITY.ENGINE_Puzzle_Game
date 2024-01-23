@@ -13,15 +13,6 @@ public class PlayerStates : MonoBehaviour
     }
 
     public States currentState;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public States UpdateState()
     {
