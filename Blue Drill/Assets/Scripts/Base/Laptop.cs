@@ -9,7 +9,9 @@ public class Laptop : MonoBehaviour
 
     [Header("References")]
     [SerializeField] PlayerStates playerStates;
-    public GameObject LaptopCanvas;
+    public GameObject laptopCanvas;
+    public GameObject startLaptopCanvas;
+    public GameObject laptopBlockedCanvas;
     [SerializeField] LaptopStates laptopStates;
 
     
@@ -69,7 +71,7 @@ public class Laptop : MonoBehaviour
 
     public void ExitLaptopUIButton()
     {
-        LaptopCanvas.SetActive(false);
+        laptopCanvas.SetActive(false);
         laptopStates.currentState = LaptopStates.States.standby;
         playerStates.currentState = PlayerStates.States.idle;
     }
