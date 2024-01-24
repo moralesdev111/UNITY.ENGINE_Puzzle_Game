@@ -5,5 +5,9 @@ using UnityEngine;
 public interface IMoveable 
 {
     void Move();
+}
 
+public interface IRemoveButtonFunctionality
+{
+    void RemoveButtonFunctionality();
 }

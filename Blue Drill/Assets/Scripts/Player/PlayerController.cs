@@ -8,13 +8,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement; 
     [SerializeField] PlayerStates playerStates;
     [SerializeField] PlayerStateActions playerStateActions;
+    [SerializeField] RepairAbility repairAbility;
     
+
     private void Update()
     {    
-        
         playerStates.UpdateState();
         playerStateActions.StateActions();
         playerMovement.Move();   
+        repairAbility.CheckIfCanRepair();
     }
 }
     

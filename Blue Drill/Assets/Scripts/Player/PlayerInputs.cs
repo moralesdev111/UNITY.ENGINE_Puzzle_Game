@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
 {
-    [HideInInspector] public Vector3 direction;   
+    [HideInInspector] public Vector3 direction;  
+    public KeyCode repairKey = KeyCode.Y;
     private float horizontalInput;
     private float verticalInput;      
 

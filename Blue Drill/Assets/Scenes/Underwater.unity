@@ -485,9 +485,11 @@ GameObject:
   - component: {fileID: 197780483}
   - component: {fileID: 197780482}
   - component: {fileID: 197780485}
+  - component: {fileID: 197780486}
+  - component: {fileID: 197780487}
   m_Layer: 0
   m_Name: Pipe (1)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,6 +596,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 197780486}
+--- !u!114 &197780486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197780480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 197780485}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &197780487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197780480}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.000000059604645, y: -0.00000011920929, z: -0.00000008940697}
 --- !u!1 &207011777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,9 +1310,11 @@ GameObject:
   - component: {fileID: 275495947}
   - component: {fileID: 275495946}
   - component: {fileID: 275495949}
+  - component: {fileID: 275495950}
+  - component: {fileID: 275495951}
   m_Layer: 0
   m_Name: Pipe (6)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,6 +1421,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 275495950}
+--- !u!114 &275495950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275495944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 275495949}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &275495951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275495944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.00000008940698, y: 2.646978e-23, z: -0.00000008940697}
 --- !u!1 &276345205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8307369649057765513, guid: 5328dcab020570a4aaa41519277afa21, type: 3}
@@ -3542,7 +3620,7 @@ Transform:
   m_GameObject: {fileID: 741347175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.48, z: 0}
+  m_LocalPosition: {x: 0, y: 0.48, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4599,9 +4677,11 @@ GameObject:
   - component: {fileID: 956811420}
   - component: {fileID: 956811419}
   - component: {fileID: 956811422}
+  - component: {fileID: 956811423}
+  - component: {fileID: 956811424}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4708,6 +4788,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 956811423}
+--- !u!114 &956811423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956811417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 956811422}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &956811424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956811417}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.000000059604645, y: -0.00000011920929, z: -0.00000008940697}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,7 +4911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.127149, y: 0.86953837, z: -0.3756488, w: 0.29432}
+  m_LocalRotation: {x: 0.127149, y: 0.8695383, z: -0.3756488, w: 0.29431993}
   m_LocalPosition: {x: -3.4516013, y: 8, z: -0.7190752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5700,6 +5817,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a34fbda8460684685e5cf7c8b7e9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1131483097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724982300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21689141316e15e4dac88fb95a0d9865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeItemSlot: {fileID: 1587566648}
+  playerInputs: {fileID: 1131483092}
+  equipment: {fileID: 0}
 --- !u!1 &1135920936
 GameObject:
   m_ObjectHideFlags: 0
@@ -6358,7 +6490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282295070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12714899, y: 0.86953837, z: -0.37564874, w: 0.29431993}
+  m_LocalRotation: {x: 0.12714896, y: 0.86953837, z: -0.37564877, w: 0.2943199}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6502,9 +6634,10 @@ GameObject:
   - component: {fileID: 1307656507}
   - component: {fileID: 1307656506}
   - component: {fileID: 1307656509}
+  - component: {fileID: 1307656510}
   m_Layer: 0
   m_Name: Connector
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6609,6 +6742,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1307656510}
+--- !u!114 &1307656510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307656504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1307656509}
+  fullHealthColor: {r: 0.3803922, g: 0.3921569, b: 0.42352945, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1334195716
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,9 +7011,11 @@ GameObject:
   - component: {fileID: 1396894960}
   - component: {fileID: 1396894959}
   - component: {fileID: 1396894962}
+  - component: {fileID: 1396894963}
+  - component: {fileID: 1396894964}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6971,6 +7122,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1396894963}
+--- !u!114 &1396894963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396894957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1396894962}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &1396894964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396894957}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.00000008940697, y: 0, z: -0.00000008940697}
 --- !u!1 &1406858604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7152,9 +7340,10 @@ GameObject:
   - component: {fileID: 1418548794}
   - component: {fileID: 1418548793}
   - component: {fileID: 1418548796}
+  - component: {fileID: 1418548797}
   m_Layer: 0
   m_Name: Connector
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7259,6 +7448,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1418548797}
+--- !u!114 &1418548797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418548791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1418548796}
+  fullHealthColor: {r: 0.3803922, g: 0.3921569, b: 0.42352945, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1506744994
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,9 +8136,11 @@ GameObject:
   - component: {fileID: 1613851956}
   - component: {fileID: 1613851955}
   - component: {fileID: 1613851958}
+  - component: {fileID: 1613851959}
+  - component: {fileID: 1613851960}
   m_Layer: 0
   m_Name: Pipe (2)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8040,6 +8247,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1613851959}
+--- !u!114 &1613851959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613851953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1613851958}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &1613851960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613851953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.000000059604645, y: -0.00000011920929, z: -0.00000008940697}
 --- !u!1 &1642587343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8850,7 +9094,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13248147, y: 0.86256164, z: -0.39140308, w: 0.29195845}
+  m_LocalRotation: {x: 0.13248144, y: 0.86256164, z: -0.39140305, w: 0.29195845}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9180,9 +9424,10 @@ GameObject:
   - component: {fileID: 1757575116}
   - component: {fileID: 1757575115}
   - component: {fileID: 1757575118}
+  - component: {fileID: 1757575119}
   m_Layer: 0
   m_Name: Connector (2)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9287,6 +9532,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1757575119}
+--- !u!114 &1757575119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757575113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1757575118}
+  fullHealthColor: {r: 0.3803922, g: 0.3921569, b: 0.42352945, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1757889759
 GameObject:
   m_ObjectHideFlags: 0
@@ -9561,9 +9822,11 @@ GameObject:
   - component: {fileID: 1802302102}
   - component: {fileID: 1802302101}
   - component: {fileID: 1802302104}
+  - component: {fileID: 1802302105}
+  - component: {fileID: 1802302106}
   m_Layer: 0
   m_Name: Pipe (7)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9670,6 +9933,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1802302105}
+--- !u!114 &1802302105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802302099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1802302104}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &1802302106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802302099}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.00000008940698, y: 2.646978e-23, z: -0.00000008940697}
 --- !u!1001 &1806320012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10543,9 +10843,10 @@ GameObject:
   - component: {fileID: 1881149776}
   - component: {fileID: 1881149775}
   - component: {fileID: 1881149778}
+  - component: {fileID: 1881149779}
   m_Layer: 0
   m_Name: Connector (1)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10650,6 +10951,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 1881149779}
+--- !u!114 &1881149779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881149773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 1881149778}
+  fullHealthColor: {r: 0.3803922, g: 0.3921569, b: 0.42352945, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1923525081
 GameObject:
   m_ObjectHideFlags: 0
@@ -10699,7 +11016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969486222}
   m_Layer: 0
-  m_Name: Pipes
+  m_Name: Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11218,9 +11535,11 @@ GameObject:
   - component: {fileID: 2117645827}
   - component: {fileID: 2117645826}
   - component: {fileID: 2117645829}
+  - component: {fileID: 2117645830}
+  - component: {fileID: 2117645831}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11327,6 +11646,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 2117645830}
+--- !u!114 &2117645830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117645824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 2117645829}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &2117645831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117645824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.000000059604645, y: -0.00000011920929, z: -0.00000008940697}
 --- !u!1 &2145553969
 GameObject:
   m_ObjectHideFlags: 0
@@ -11340,9 +11696,11 @@ GameObject:
   - component: {fileID: 2145553972}
   - component: {fileID: 2145553971}
   - component: {fileID: 2145553974}
+  - component: {fileID: 2145553975}
+  - component: {fileID: 2145553976}
   m_Layer: 0
   m_Name: Pipe (3)
-  m_TagString: Untagged
+  m_TagString: Equipment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11449,6 +11807,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  equipmentColorChange: {fileID: 2145553975}
+--- !u!114 &2145553975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145553969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac981437eb7add4dba40e4b461664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: {fileID: 2145553974}
+  fullHealthColor: {r: 0.54901963, g: 0.5058824, b: 0.1764706, a: 0}
+  lowHealthColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &2145553976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145553969}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 1, z: 2.5}
+  m_Center: {x: 0.00000008940697, y: 0, z: -0.00000008940697}
 --- !u!1001 &1170078731617939848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11637,9 +12032,21 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4403484362182625253, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+      propertyPath: playerInputs
+      value: 
+      objectReference: {fileID: 1131483092}
+    - target: {fileID: 4403484362182625253, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+      propertyPath: repairAbility
+      value: 
+      objectReference: {fileID: 1131483097}
+    - target: {fileID: 4403484362182625253, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: playerStateActions
       value: 
       objectReference: {fileID: 1131483089}
+    - target: {fileID: 8173181232098772907, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+      propertyPath: activeItemSlot
+      value: 
+      objectReference: {fileID: 1587566648}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11647,6 +12054,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2051308808226145374, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1131483089}
+    - targetCorrespondingSourceObject: {fileID: 2051308808226145374, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1131483097}
   m_SourcePrefab: {fileID: 100100000, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
 --- !u!1001 &4375867515208089937
 PrefabInstance:
