@@ -11,6 +11,7 @@ public class MoneyBank : Bank
     [SerializeField] TextMeshProUGUI laptopMoneyText;
     [SerializeField] TextMeshProUGUI pendingTransactionsText;
     [SerializeField] Image moneyBankCanvas;
+    [SerializeField] OilBank oilBank;
     
 
     public int pendingBalance = 0;
@@ -41,6 +42,7 @@ public class MoneyBank : Bank
     {
         currentBalance += pendingBalance;
         pendingBalance = 0;
+        oilBank.currentBalance = 0;
     }
 
 }

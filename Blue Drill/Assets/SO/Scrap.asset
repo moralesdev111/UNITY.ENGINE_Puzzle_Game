@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Scrap
   itemSprite: {fileID: 21300000, guid: 6a1d19e802960ca409ebc68730b88369, type: 3}
-  gameObject: {fileID: 6931697498505504035, guid: 14b2036eec4bf244c865d56438d77677, type: 3}
+  gameObject: {fileID: 3345662491179565351, guid: fa1c71055df90474c8e4aa29027fa904, type: 3}
   itemType: 1
-  yield: 5
+  yield: 1
