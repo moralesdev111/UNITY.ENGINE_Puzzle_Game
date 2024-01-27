@@ -90,3 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
   cellImage: {fileID: 0}
+  bombSprite: {fileID: 1784512480, guid: 418f5b4bcc0350449b97e79d4ca241d9, type: 3}

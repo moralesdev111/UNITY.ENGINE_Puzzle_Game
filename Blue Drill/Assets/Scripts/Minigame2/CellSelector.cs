@@ -10,6 +10,7 @@ public class CellSelector : MonoBehaviour
     public Dictionary<Vector2Int, Image> cellCoordinateImageDictionary = new Dictionary<Vector2Int, Image>();
     private Vector2Int currentCell; // Keep track of the current cell coordinates
     private Vector2Int[] bombCells;
+    public Sprite bombSprite;
 
     private void Start()
     {
@@ -116,7 +117,12 @@ public class CellSelector : MonoBehaviour
         {
             if(target == bombCells[i])
             {
-                return true;
+                 if(cellCoordinateImageDictionary.TryGetValue(target, out Image targetImage))
+                 {
+                    targetImage.sprite = bombSprite;
+                     return true;
+                 }
+                 
             }
         }
         return false;
