@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
-public class Laptop : MonoBehaviour
+public class Laptop : MonoBehaviour, IRandomNumberGenerateable
 {
      public int randomNumber;
 
@@ -47,7 +47,7 @@ public class Laptop : MonoBehaviour
 
             if(collider.CompareTag("Player"))
             {
-                RandomNumberGenerator();
+                GenerateRandomNumber();
             }
         }
         else 
@@ -76,7 +76,7 @@ public class Laptop : MonoBehaviour
         playerStates.currentState = PlayerStates.States.idle;
     }
 
-    public int RandomNumberGenerator()
+    public int GenerateRandomNumber()
     {
        return randomNumber = Random.Range(0,5);
     }

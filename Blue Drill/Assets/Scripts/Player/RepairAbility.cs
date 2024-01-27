@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairAbility : MonoBehaviour, IRemoveButtonFunctionality
+public class RepairAbility : MonoBehaviour, IRemoveButtonFunctionable
 {
     [SerializeField] ActiveItemSlot activeItemSlot;
     [SerializeField] PlayerInputs playerInputs;

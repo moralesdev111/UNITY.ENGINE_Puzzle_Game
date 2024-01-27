@@ -7,7 +7,12 @@ public interface IMoveable
     void Move();
 }
 
-public interface IRemoveButtonFunctionality
+public interface IRemoveButtonFunctionable
 {
     void RemoveButtonFunctionality();
+}
+
+public interface IRandomNumberGenerateable
+{
+    int GenerateRandomNumber();
 }

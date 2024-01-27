@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActiveItemSlot : MonoBehaviour, IRemoveButtonFunctionality
+public class ActiveItemSlot : MonoBehaviour, IRemoveButtonFunctionable
 {
     public Image activeItemSprite;
     public Button removeActiveItemButton;
