@@ -3973,7 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridManager: {fileID: 0}
+  status: {fileID: 0}
 --- !u!1 &776266719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,7 +4107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridManager: {fileID: 0}
+  status: {fileID: 0}
 --- !u!1 &784912568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5474,7 +5474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridManager: {fileID: 1667498413}
+  status: {fileID: 1667498420}
 --- !u!1 &1047944982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,6 +6042,7 @@ MonoBehaviour:
   playerStates: {fileID: 1131483088}
   playerInputs: {fileID: 1131483092}
   miniGameCanvas: {fileID: 1675573969}
+  gridManager: {fileID: 0}
 --- !u!114 &1131483092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8173181232098772907, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
@@ -6714,7 +6715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridManager: {fileID: 0}
+  status: {fileID: 0}
 --- !u!1 &1282295070
 GameObject:
   m_ObjectHideFlags: 3
@@ -8747,6 +8748,11 @@ GameObject:
   - component: {fileID: 1667498414}
   - component: {fileID: 1667498413}
   - component: {fileID: 1667498415}
+  - component: {fileID: 1667498416}
+  - component: {fileID: 1667498417}
+  - component: {fileID: 1667498418}
+  - component: {fileID: 1667498419}
+  - component: {fileID: 1667498420}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -8771,8 +8777,6 @@ MonoBehaviour:
   gridPrefab: {fileID: 2447753252948478633, guid: 030a396dce403544ca4d9b15111fe531, type: 3}
   canvas: {fileID: 941215446}
   modifiedCells: []
-  gameInprogress: 0
-  cellSelector: {fileID: 1667498415}
 --- !u!4 &1667498414
 Transform:
   m_ObjectHideFlags: 0
@@ -8801,10 +8805,90 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1667498413}
+  cellNavigation: {fileID: 1667498417}
+  cellUI: {fileID: 1667498419}
+  status: {fileID: 1667498420}
   currentCell: {fileID: 0}
   bombCells: []
   rewardCell: {fileID: 0}
+--- !u!114 &1667498416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667498412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1f2533fc2e2794b88b265b980a8519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSelector: {fileID: 1667498415}
+  gridManager: {fileID: 1667498413}
+  status: {fileID: 1667498420}
+--- !u!114 &1667498417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667498412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb9f59eecc7e4046998b6b9e721e9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell: {fileID: 1667498415}
+  gridManager: {fileID: 1667498413}
+  gridManagerMethods: {fileID: 1667498416}
+  cellUI: {fileID: 1667498419}
+--- !u!114 &1667498418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667498412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212bebc0d161873418e56d3c714b93e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell: {fileID: 1667498415}
+  gridManager: {fileID: 1667498413}
+  gridManagerMethods: {fileID: 1667498416}
+  cellUI: {fileID: 1667498419}
+--- !u!114 &1667498419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667498412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52c9953b6cb16f448fbde0fa81fde0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cell: {fileID: 1667498415}
+--- !u!114 &1667498420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667498412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f46927e67092a4b90cacdd05c125ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 1667498413}
+  gridManagerMethods: {fileID: 1667498416}
+  status: {fileID: 1667498420}
   lives: 2
+  gameInprogress: 0
+  canStart: 1
 --- !u!1 &1670478664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9447,7 +9531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13248147, y: 0.86256164, z: -0.39140308, w: 0.29195845}
+  m_LocalRotation: {x: 0.13248144, y: 0.86256164, z: -0.39140305, w: 0.29195845}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
