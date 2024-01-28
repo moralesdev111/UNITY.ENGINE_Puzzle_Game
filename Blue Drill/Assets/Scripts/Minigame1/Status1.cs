@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class Status1 : MonoBehaviour
 {
-      [SerializeField] Item drillItem;
-      [SerializeField] ProgressCheck progressCheck;
-      [SerializeField] Minigame minigame;
-      [SerializeField] OilBank oilBank;
-      [SerializeField] MoneyBank moneyBank;
-      private PlayerStates playerStates;
+    [SerializeField] Status status;
+    [SerializeField] PlayerStates playerStates;
+    [SerializeField] ProgressCheck progressCheck;
+    [SerializeField] Minigame minigame;
+     
 
     private void Start()
     {
         playerStates = FindObjectOfType<PlayerStates>();
     }
 
-
     public void Succeed()
     {
         minigame.gameInprogress = false;
         this.gameObject.SetActive(false);
-        playerStates.currentState = PlayerStates.States.idle;
         progressCheck.drillProgress = 0;
-        moneyBank.AddToBank(drillItem.yield);
-        oilBank.AddToBank(drillItem.yield);
         this.gameObject.SetActive(false);
+        playerStates.currentState = PlayerStates.States.minigame2;
+        status.canStart = true;
+        status.StartGame();
     }
 
     public void Fail()
     {
+        minigame.cantStartFirstGame = true;
         minigame.gameInprogress = false;
         this.gameObject.SetActive(false);
         playerStates.currentState = PlayerStates.States.idle;

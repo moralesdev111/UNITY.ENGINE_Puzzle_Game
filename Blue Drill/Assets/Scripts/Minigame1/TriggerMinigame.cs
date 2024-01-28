@@ -7,13 +7,17 @@ public class TriggerMinigame : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject startDrillingCanvas;
     [SerializeField] Minigame minigame;
+    [SerializeField] GridManager gridManager;
 
     void OnTriggerStay(Collider collider)
     {
         ActiveItemSlot activeItemSlot = FindObjectOfType<ActiveItemSlot>();
         PlayerStates playerStates = collider.GetComponent<PlayerStates>();
-
-        if (activeItemSlot != null)
+    
+    if(minigame.cantStartFirstGame)
+        {if(gridManager.countDown <= gridManager.barrier)
+        {
+             if (activeItemSlot != null)
         {
             if (activeItemSlot.activeitem != null && activeItemSlot.activeitem.itemType == Item.ItemType.tool)
             {
@@ -22,6 +26,7 @@ public class TriggerMinigame : MonoBehaviour
                     startDrillingCanvas.SetActive(true);
                     if (Input.GetKey(KeyCode.Z))
                     {
+                        minigame.cantStartFirstGame = false;
                         minigame.gameInprogress = true;
                         startDrillingCanvas.SetActive(false);
                         Debug.Log("Game Started"); // trigger minigame player state
@@ -35,7 +40,10 @@ public class TriggerMinigame : MonoBehaviour
                 return;
             }
         }
-    }
+        }
+       
+    }        
+}
     
     void OnTriggerExit(Collider collider)
     {

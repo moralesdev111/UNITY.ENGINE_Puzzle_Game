@@ -12,6 +12,9 @@ public class GridManager : MonoBehaviour
     public Canvas canvas;
     public GameObject[,] grid;
     public List<GameObject> modifiedCells = new List<GameObject>();
+    public float countDown = 0f;
+    public float barrier = 0f;
+    public bool startTimeCD = false;
     
     
 

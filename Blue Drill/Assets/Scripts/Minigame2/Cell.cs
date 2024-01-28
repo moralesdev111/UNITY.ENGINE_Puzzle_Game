@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
+    [SerializeField] OilBank oilBank;
+      [SerializeField] MoneyBank moneyBank;
+      [SerializeField] Item drillItem;
     [SerializeField] GridManager gridManager;
     [SerializeField] CellNavigation cellNavigation;
     [SerializeField] CellUI cellUI;
@@ -19,6 +22,19 @@ public class Cell : MonoBehaviour
     {
         cellNavigation.NavigateTheGrid();
         SearchGrid();
+        if(gridManager.startTimeCD)
+        {
+           
+            
+            gridManager.countDown -= Time.deltaTime;
+                if(gridManager.countDown <= gridManager.barrier)
+                {
+                    
+                    gridManager.startTimeCD = false;
+                    
+            }
+           
+        }
     }
 
 
@@ -36,14 +52,18 @@ public class Cell : MonoBehaviour
                 status.lives--;
                 if (status.lives < 1)
                 {
+                    gridManager.countDown = 5f;
+                    gridManager.startTimeCD = true;
                     Debug.Log("Dead");
                     StartCoroutine(EndGameProcess());
+                    
                 }
                 break;
             }
             else if (currentCell == rewardCell)
             {
-                Debug.Log("You win");
+                 moneyBank.AddToBank(drillItem.yield);
+        oilBank.AddToBank(drillItem.yield);
                 StartCoroutine(EndGameProcess());
                 break;
             }

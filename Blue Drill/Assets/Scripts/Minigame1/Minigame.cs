@@ -13,13 +13,12 @@ public class Minigame : MonoBehaviour
     [Header("Setting MiniGame")]
     public Transform topPivot;
     public Transform bottomPivot;
-   public float failTimer = 12f;
-
+    public float failTimer = 12f;
     public bool gameInprogress = false;
+    public bool cantStartFirstGame = true;
   
     [SerializeField] ProgressCheck progressCheck;
 
-   
 
     void Update()
     {
@@ -27,8 +26,4 @@ public class Minigame : MonoBehaviour
         drill.Move();
         progressCheck.ProgressChecking();
     }
-
-    
-
-    
 }

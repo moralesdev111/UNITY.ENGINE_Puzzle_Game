@@ -3890,6 +3890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
+  gridManager: {fileID: 0}
 --- !u!65 &773280186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4096,6 +4097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
+  gridManager: {fileID: 0}
 --- !u!114 &776266725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5356,7 +5358,6 @@ GameObject:
   - component: {fileID: 1024088735}
   - component: {fileID: 1024088734}
   - component: {fileID: 1024088737}
-  - component: {fileID: 1024088738}
   m_Layer: 0
   m_Name: DrillArea2
   m_TagString: Untagged
@@ -5464,20 +5465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
---- !u!114 &1024088738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024088732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status: {fileID: 1667498420}
-  playerStates: {fileID: 1131483088}
+  gridManager: {fileID: 1667498413}
 --- !u!1 &1047944982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6634,6 +6622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
+  gridManager: {fileID: 0}
 --- !u!65 &1277717687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8780,6 +8769,9 @@ MonoBehaviour:
   gridPrefab: {fileID: 2447753252948478633, guid: 030a396dce403544ca4d9b15111fe531, type: 3}
   canvas: {fileID: 941215446}
   modifiedCells: []
+  countDown: 0
+  barrier: 0
+  startTimeCD: 0
 --- !u!4 &1667498414
 Transform:
   m_ObjectHideFlags: 0
@@ -8807,6 +8799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f86b84f6fce4c459ce269c1d516030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oilBank: {fileID: 1204397817}
+  moneyBank: {fileID: 276345206}
+  drillItem: {fileID: 11400000, guid: 78dbe1330f9292c4c97a6cc66b432919, type: 2}
   gridManager: {fileID: 1667498413}
   cellNavigation: {fileID: 1667498417}
   cellUI: {fileID: 1667498419}
@@ -8890,6 +8885,7 @@ MonoBehaviour:
   gridManagerMethods: {fileID: 1667498416}
   status: {fileID: 1667498420}
   playerStates: {fileID: 1131483088}
+  minigame: {fileID: 1675573966}
   lives: 2
   gameInprogress: 0
   canStart: 1
@@ -9092,6 +9088,7 @@ MonoBehaviour:
   bottomPivot: {fileID: 215117723}
   failTimer: 10
   gameInprogress: 0
+  cantStartFirstGame: 1
   progressCheck: {fileID: 1675573970}
 --- !u!114 &1675573967
 MonoBehaviour:
@@ -9186,11 +9183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c602ec8bf9d684ca23dd52ca2a4327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drillItem: {fileID: 11400000, guid: 78dbe1330f9292c4c97a6cc66b432919, type: 2}
+  status: {fileID: 1667498420}
+  playerStates: {fileID: 1131483088}
   progressCheck: {fileID: 1675573970}
   minigame: {fileID: 1675573966}
-  oilBank: {fileID: 1204397817}
-  moneyBank: {fileID: 276345206}
 --- !u!1 &1683882652
 GameObject:
   m_ObjectHideFlags: 0
