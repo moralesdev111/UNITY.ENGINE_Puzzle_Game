@@ -9,6 +9,7 @@ public class PlayerStateActions : MonoBehaviour
     [SerializeField] PlayerStates playerStates;
     [SerializeField] PlayerInputs playerInputs;
     [SerializeField] Canvas miniGameCanvas;
+    [SerializeField] GridManager gridManager;
  
 
     public void StateActions()
