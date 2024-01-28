@@ -10,7 +10,7 @@ public class TriggerMinigame2 : MonoBehaviour
     [SerializeField] Status status;
     [SerializeField] PlayerStates playerStates;
 
-
+/*
     void OnTriggerStay(Collider collider)
     {
         if(status.canStart)
@@ -24,5 +24,5 @@ public class TriggerMinigame2 : MonoBehaviour
             }           
         }
         }
-    }
+    }*/
 }
