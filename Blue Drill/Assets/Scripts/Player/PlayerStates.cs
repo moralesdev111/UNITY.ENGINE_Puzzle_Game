@@ -12,6 +12,7 @@ public class PlayerStates : MonoBehaviour
         idle,
         walking,
         minigame,
+        minigame2,
         freezingUI
     }
 
@@ -35,6 +36,8 @@ public class PlayerStates : MonoBehaviour
             }
             break;
             case States.minigame:            
+            break;
+            case States.minigame2:            
             break;
             case States.freezingUI:            
             break;

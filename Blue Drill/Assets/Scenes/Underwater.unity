@@ -3853,6 +3853,7 @@ GameObject:
   - component: {fileID: 773280187}
   - component: {fileID: 773280186}
   - component: {fileID: 773280185}
+  - component: {fileID: 773280189}
   m_Layer: 0
   m_Name: DrillArea (1)
   m_TagString: Untagged
@@ -3960,6 +3961,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773280183}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &773280189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773280183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
 --- !u!1 &776266719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +3987,7 @@ GameObject:
   - component: {fileID: 776266722}
   - component: {fileID: 776266721}
   - component: {fileID: 776266724}
+  - component: {fileID: 776266725}
   m_Layer: 0
   m_Name: DrillArea
   m_TagString: Untagged
@@ -4080,6 +4095,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
+--- !u!114 &776266725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776266719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
 --- !u!1 &784912568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4696,7 +4724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &941215446
 Canvas:
   m_ObjectHideFlags: 0
@@ -5326,6 +5354,7 @@ GameObject:
   - component: {fileID: 1024088735}
   - component: {fileID: 1024088734}
   - component: {fileID: 1024088737}
+  - component: {fileID: 1024088738}
   m_Layer: 0
   m_Name: DrillArea2
   m_TagString: Untagged
@@ -5433,6 +5462,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDrillingCanvas: {fileID: 344485534}
   minigame: {fileID: 1675573966}
+--- !u!114 &1024088738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024088732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 1667498413}
 --- !u!1 &1047944982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6552,6 +6594,7 @@ GameObject:
   - component: {fileID: 1277717688}
   - component: {fileID: 1277717687}
   - component: {fileID: 1277717686}
+  - component: {fileID: 1277717690}
   m_Layer: 0
   m_Name: DrillArea2 (1)
   m_TagString: Untagged
@@ -6659,6 +6702,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277717684}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1277717690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277717684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ed97609f2e4a545bea0b15c9a97806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
 --- !u!1 &1282295070
 GameObject:
   m_ObjectHideFlags: 3
@@ -8710,11 +8766,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d71f31a129e44b4aa5f20c93892380f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellSelector: {fileID: 1667498415}
   rows: 5
   columns: 5
-  gridPrefab: {fileID: 1012771858912843698, guid: af8bb3422122ab44587175b0f370174c, type: 3}
+  gridPrefab: {fileID: 2447753252948478633, guid: 030a396dce403544ca4d9b15111fe531, type: 3}
   canvas: {fileID: 941215446}
+  modifiedCells: []
+  gameInprogress: 0
+  cellSelector: {fileID: 1667498415}
 --- !u!4 &1667498414
 Transform:
   m_ObjectHideFlags: 0
@@ -8743,8 +8801,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1667498413}
-  cellImage: {fileID: 0}
-  bombSprite: {fileID: 1784512480, guid: 418f5b4bcc0350449b97e79d4ca241d9, type: 3}
+  currentCell: {fileID: 0}
+  bombCells: []
+  rewardCell: {fileID: 0}
+  lives: 2
 --- !u!1 &1670478664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9387,7 +9447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13248144, y: 0.86256164, z: -0.39140305, w: 0.29195845}
+  m_LocalRotation: {x: 0.13248147, y: 0.86256164, z: -0.39140308, w: 0.29195845}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

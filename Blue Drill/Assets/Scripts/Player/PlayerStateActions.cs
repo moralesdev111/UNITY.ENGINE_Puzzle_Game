@@ -27,6 +27,12 @@ public class PlayerStateActions : MonoBehaviour
             miniGameCanvas.gameObject.SetActive(true);
             
         }
+        if(playerStates.currentState == PlayerStates.States.minigame2)
+        {
+            playerInputs.direction = new Vector3(0,0,0);
+           
+            
+        }
         if(playerStates.currentState == PlayerStates.States.freezingUI)
         {
             playerInputs.direction = new Vector3(0,0,0);

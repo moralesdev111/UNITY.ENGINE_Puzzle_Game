@@ -1,21 +1,23 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CellSelector : MonoBehaviour
 {
     [SerializeField] GridManager gridManager;
-    public Image cellImage = null;
-    public Dictionary<Vector2Int, Image> cellCoordinateImageDictionary = new Dictionary<Vector2Int, Image>();
-    private Vector2Int currentCell; // Keep track of the current cell coordinates
-    private Vector2Int[] bombCells;
-    public Sprite bombSprite;
+   
+    public GameObject currentCell; // Keep track of the current cell coordinates
+    public GameObject[] bombCells;
+    public GameObject rewardCell;
+    public int lives = 2;
 
-    private void Start()
+    private void OnEnable()
     {
         SetStartCell();
+       
         SetBombCells();
+        SetRewardCells();
     }
 
     private void Update()
@@ -28,103 +30,147 @@ public class CellSelector : MonoBehaviour
     {
         if (gridManager != null)
         {
-            currentCell = gridManager.GetCellAtPosition(2, 2);
+            currentCell = gridManager.GetCellFromCoordinate(new Vector2Int(2,2));
 
-            if (cellCoordinateImageDictionary.TryGetValue(currentCell, out Image selectedCellImage))
-            {
-                HighlightCell(selectedCellImage);
-            }
-            else
+                HighlightCell(currentCell, Color.red);
+        }
+         else
             {
                 Debug.Log("Cell not found.");
             }
-        }
     }
 
-    private void HighlightCell(Image cellImage)
+   private void HighlightCell(GameObject cell, Color highlightColor)
+{
+    if (cell != null)
     {
-        cellImage.color = Color.red;
+        // Assuming the image is a child of the cell GameObject
+        Image cellImage = cell.GetComponent<Image>();
+
+        if (cellImage != null)
+        {
+            // Highlight the cell by changing its color
+            cellImage.color = highlightColor;
+        }
+        else
+        {
+            Debug.LogError("Image component not found on the cell GameObject.");
+        }
+    }
+    else
+    {
+        Debug.LogError("Highlighted cell GameObject is null.");
+    }
+}
+
+
+   private void NavigateTheGrid()
+{
+    // Check for arrow key input
+    int newRow = 0;
+    int newColumn = 0;
+
+    if (Input.GetKeyDown(KeyCode.UpArrow))
+    {
+        newRow = -1;
+    }
+    else if (Input.GetKeyDown(KeyCode.DownArrow))
+    {
+        newRow = 1;
+    }
+    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+    {
+        newColumn = -1;
+    }
+    else if (Input.GetKeyDown(KeyCode.RightArrow))
+    {
+        newColumn = 1;
     }
 
-    private void NavigateTheGrid()
+    if (gridManager != null && currentCell != null)
     {
-        // Check for arrow key input
-        int newRow = currentCell.x;
-        int newColumn = currentCell.y;
+        // Get the current cell coordinates
+        Vector2Int currentCellCoordinate = gridManager.GetCellCoordinateFromGameObject(currentCell);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            newRow--;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            newRow++;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            newColumn--;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            newColumn++;
-        }
-
-        if(gridManager!= null)
-        {
-             Vector2Int newCell = gridManager.GetCellAtPosition(newRow, newColumn);
+        // Calculate the new cell coordinates
+        Vector2Int newCellCoordinate = new Vector2Int(currentCellCoordinate.x + newRow, currentCellCoordinate.y + newColumn);
 
         // Check if the new cell coordinates are valid
-        if (cellCoordinateImageDictionary.TryGetValue(newCell, out Image selectedCellImage))
+        if (gridManager.IsWithinGridBounds(newCellCoordinate))
         {
-            // Reset the previous cell color
-            cellCoordinateImageDictionary[currentCell].color = Color.white;
+            // Reset the previous cell color if it exists
+            HighlightCell(currentCell, Color.gray);
 
-            // Highlight the new cell
-            HighlightCell(selectedCellImage);
-
-            // Update the current cell coordinates
-            currentCell = newCell;
-        }
+            // Highlight the new cell with the desired color
+            currentCell = gridManager.GetCellFromCoordinate(newCellCoordinate);
+            HighlightCell(currentCell, Color.red);
         }
     }
-    
-    private void SearchGrid()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(cellCoordinateImageDictionary.TryGetValue(currentCell, out Image selectedCellImage))
-            {
-                selectedCellImage.enabled = false;
+}
 
-                if(CheckForBombCell(currentCell)) // check if coincides with any of the array values
-                    {
-                        Debug.Log("You lose");
-                    }
-            }           
+    private void SearchGrid()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        gridManager.modifiedCells.Add(currentCell);
+        UpdateSprite(2);
+
+        for (int i = 0; i < bombCells.Length; i++)
+        {
+            if (currentCell == bombCells[i])
+            {                        
+                lives--;
+                if (lives < 1)
+                {
+                    Debug.Log("Dead");
+                    StartCoroutine(EndGameProcess());
+                }
+                break;
+            }
+            else if (currentCell == rewardCell)
+            {
+                Debug.Log("You win");
+                StartCoroutine(EndGameProcess());
+                break;
+            }
         }
+    }
+}
+
+
+    private void EndGame()
+    {
+        gridManager.gameInprogress = false;
+        gridManager.canvas.gameObject.SetActive(false);
     }
 
     private void SetBombCells()
     {
-        bombCells = new Vector2Int[2];
-        bombCells[0] = new Vector2Int(4,4);
-        bombCells[1] = new Vector2Int(0,0);        
+        bombCells = new GameObject[2];
+        bombCells[0] = gridManager.GetCellFromCoordinate(new Vector2Int(4,4));
+        Transform child = bombCells[0].transform.GetChild(0);
+        child.gameObject.SetActive(true);
+        bombCells[1] = gridManager.GetCellFromCoordinate(new Vector2Int(0,0));
+        Transform child2 = bombCells[1].transform.GetChild(0);
+        child2.gameObject.SetActive(true);
     }
 
-    private bool CheckForBombCell(Vector2Int target)
+    private void SetRewardCells()
     {
-        for(int i = 0; i < bombCells.Length; i++)
-        {
-            if(target == bombCells[i])
-            {
-                 if(cellCoordinateImageDictionary.TryGetValue(target, out Image targetImage))
-                 {
-                    targetImage.sprite = bombSprite;
-                     return true;
-                 }
-                 
-            }
-        }
-        return false;
+        rewardCell = gridManager.GetCellFromCoordinate(new Vector2Int(1,1));
+        Transform child = rewardCell.transform.GetChild(1);
+        child.gameObject.SetActive(true);
+    }
+
+    private void UpdateSprite(int child)
+    {
+        Transform box = currentCell.transform.GetChild(child);
+        box.GetComponent<Image>().enabled = false;
+    }
+    IEnumerator EndGameProcess()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+        EndGame();
     }
 }

@@ -1,24 +1,27 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField] CellSelector cellSelector;
     public int rows = 5;
     public int columns = 5;
     public GameObject gridPrefab;
-    public Canvas canvas;    
+    public Canvas canvas;
     public GameObject[,] grid;
-    private Vector2Int cellCoordinate = new Vector2Int();
-    
- 
+    public List<GameObject> modifiedCells = new List<GameObject>();
+    public bool gameInprogress = false;
+    [SerializeField] CellSelector cellSelector;
+
+
     private void Awake()
     {
         CreateGrid();
     }
 
-    private void CreateGrid()
+     void CreateGrid()
     {
         grid = new GameObject[rows, columns];
 
@@ -38,27 +41,76 @@ public class GridManager : MonoBehaviour
 
                 // Store the reference to the cell in the grid array
                 grid[row, column] = newCell;
-
-                Image cellImage = newCell.GetComponent<Image>();
-                cellSelector.cellCoordinateImageDictionary.Add(new Vector2Int(row,column),cellImage);
             }
         }
     }
 
-    public Vector2Int GetCellAtPosition(int row, int column)
+    public Vector2Int GetCellCoordinateFromGameObject(GameObject cellObject)
     {
-        // Check if the specified position is within the grid boundaries
-        if (row >= 0 && row < rows && column >= 0 && column < columns)
+        for (int row = 0; row < rows; row++)
         {
-            // Access the cell at the specified position
-            cellCoordinate.x = row;
-            cellCoordinate.y = column;
-            return cellCoordinate;
+            for (int column = 0; column < columns; column++)
+            {
+                if (grid[row, column] == cellObject)
+                {
+                    return new Vector2Int(row, column);
+                }
+            }
+        }
+
+        Debug.LogError("Cell not found.");
+        return new Vector2Int(-1, -1);
+    }
+
+    public bool IsWithinGridBounds(Vector2Int cellCoordinate)
+    {
+        return cellCoordinate.x >= 0 && cellCoordinate.x < rows && cellCoordinate.y >= 0 && cellCoordinate.y < columns;
+    }
+
+    public GameObject GetCellFromCoordinate(Vector2Int cellPosition)
+    {
+        if (IsWithinGridBounds(cellPosition))
+        {
+            return grid[cellPosition.x, cellPosition.y];
         }
         else
         {
             Debug.Log("Out of bounds");
-            return new Vector2Int(-1, -1);
+            return null;
         }
     }
+
+   public void ResetCells()
+{
+    cellSelector.lives = 2;
+    foreach (GameObject cell in modifiedCells)
+    {
+        Transform child2 = cell.transform.GetChild(2);
+        Image childImage = child2.GetComponent<Image>();
+        if (child2 != null)
+        {
+            childImage.enabled = true;
+            child2.gameObject.SetActive(true);
+            Debug.Log("Activated third child in cell: " + cell.name);
+        }
+        else
+        {
+            Debug.LogError("Third child not found in cell: " + cell.name);
+        }
+
+
+        if(cell == cellSelector.rewardCell)
+        {
+             Transform child1 = cell.transform.GetChild(1);
+             child1.gameObject.SetActive(true);
+
+        }
+        else if(cell == cellSelector.bombCells[0] || cell == cellSelector.bombCells[0])
+        {   
+            Transform child0 = cell.transform.GetChild(0);
+            child0.gameObject.SetActive(true);
+        }        
+    }
+    Debug.Log("Reset complete.");
+}
 }
