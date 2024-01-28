@@ -7,7 +7,7 @@ public class Status : MonoBehaviour
     [SerializeField] GridManager gridManager;
     [SerializeField] GridManagerMethods gridManagerMethods;
     [SerializeField] Status status;
-
+    [SerializeField] PlayerStates playerStates;
 
     public int lives = 2;
     public bool gameInprogress = false;
@@ -27,8 +27,6 @@ public class Status : MonoBehaviour
         canStart = true;
         gameInprogress = false;
         gridManager.canvas.gameObject.SetActive(false);
+        playerStates.currentState = PlayerStates.States.idle;
     }
-
-    
-    
 }

@@ -3974,6 +3974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 0}
+  playerStates: {fileID: 0}
 --- !u!1 &776266719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,6 +4109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 0}
+  playerStates: {fileID: 0}
 --- !u!1 &784912568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,6 +5477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 1667498420}
+  playerStates: {fileID: 1131483088}
 --- !u!1 &1047944982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,7 +6045,6 @@ MonoBehaviour:
   playerStates: {fileID: 1131483088}
   playerInputs: {fileID: 1131483092}
   miniGameCanvas: {fileID: 1675573969}
-  gridManager: {fileID: 0}
 --- !u!114 &1131483092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8173181232098772907, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
@@ -6716,6 +6718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 0}
+  playerStates: {fileID: 0}
 --- !u!1 &1282295070
 GameObject:
   m_ObjectHideFlags: 3
@@ -8886,6 +8889,7 @@ MonoBehaviour:
   gridManager: {fileID: 1667498413}
   gridManagerMethods: {fileID: 1667498416}
   status: {fileID: 1667498420}
+  playerStates: {fileID: 1131483088}
   lives: 2
   gameInprogress: 0
   canStart: 1
@@ -9531,7 +9535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13248144, y: 0.86256164, z: -0.39140305, w: 0.29195845}
+  m_LocalRotation: {x: 0.13248147, y: 0.86256164, z: -0.39140305, w: 0.29195848}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

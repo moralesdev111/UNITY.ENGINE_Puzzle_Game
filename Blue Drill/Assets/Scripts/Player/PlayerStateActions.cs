@@ -9,7 +9,6 @@ public class PlayerStateActions : MonoBehaviour
     [SerializeField] PlayerStates playerStates;
     [SerializeField] PlayerInputs playerInputs;
     [SerializeField] Canvas miniGameCanvas;
-    [SerializeField] GridManager gridManager;
  
 
     public void StateActions()
@@ -31,6 +30,7 @@ public class PlayerStateActions : MonoBehaviour
         if(playerStates.currentState == PlayerStates.States.minigame2)
         {
             playerInputs.direction = new Vector3(0,0,0);
+            
            
             
         }

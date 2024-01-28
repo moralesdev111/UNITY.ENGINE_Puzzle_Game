@@ -8,6 +8,7 @@ public class TriggerMinigame2 : MonoBehaviour
      [Header("References")]
     
     [SerializeField] Status status;
+    [SerializeField] PlayerStates playerStates;
 
 
     void OnTriggerStay(Collider collider)
@@ -18,10 +19,10 @@ public class TriggerMinigame2 : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.X))
             {
+                 playerStates.currentState = PlayerStates.States.minigame2;
                  status.StartGame();
             }           
         }
         }
-        
     }
 }
