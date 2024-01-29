@@ -17,30 +17,41 @@ public class PlayerMovement : MonoBehaviour, IMoveable
     private float currentSpeed;
     private float turnSmoothVelocity;
     private Vector3 velocity;
-    public bool waterMovement = true;
+    public bool waterMovement = false;
+    public bool waterIdle = false;
 
 
     public void Move()
     {
-         currentSpeed = movementSpeed;
+        currentSpeed = movementSpeed;
         if (playerInputs.direction.magnitude >= 0.01f)
         {
             GetDirection();
             animator.SetFloat("Speed", currentSpeed);
-            if(waterMovement)
-            {  
-                animator.SetBool("waterMovement",true);
-            }   
-            
+            if (waterMovement)
+            {
+                animator.SetBool("waterMovement", true);
+                animator.SetBool("waterIdle",false);
+            }
         }
         else
         {
             // If not moving, reset the vertical velocity (to prevent constant falling)
             velocity.y = 0f;
             animator.SetFloat("Speed", 0f);
-            if(!waterMovement)
+
+            if (waterIdle && waterMovement)
             {
-                animator.SetBool("waterMovement",false);
+                animator.SetBool("waterIdle", true);
+            }
+            else
+            {
+                animator.SetBool("waterIdle", false);
+            }
+
+            if (!waterMovement)
+            {
+                animator.SetBool("waterMovement", false);
             }
         }
     }

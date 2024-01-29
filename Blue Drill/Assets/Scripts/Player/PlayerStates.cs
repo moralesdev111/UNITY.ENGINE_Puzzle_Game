@@ -12,6 +12,7 @@ public class PlayerStates : MonoBehaviour
     {
         idle,
         walking,
+        idleSwim,
         swimming,
         minigame,
         minigame2,
@@ -31,22 +32,34 @@ public class PlayerStates : MonoBehaviour
                 nextState = States.walking;
             }
             break;
-            case States.walking:
-            if(playerInputs.direction.magnitude <= 0.01f)
-            {
-                nextState = States.idle;
-            }
-            if(playerMovement.waterMovement)
-            {
-                nextState = States.swimming;
-            }
-            break;
+             case States.walking:
+                if (playerInputs.direction.magnitude <= 0.01f)
+                {
+                    nextState = States.idle;
+                }
+                if (playerMovement.waterMovement)
+                {
+                    nextState = States.swimming;
+                }
+                break;
+
             case States.swimming:
-            if(!playerMovement.waterMovement)
-            {
-                nextState = States.walking;
-            }
-            break;
+                if (!playerMovement.waterMovement)
+                {
+                    nextState = States.walking;
+                }
+                else if (playerInputs.direction.magnitude < 0.01f)
+                {
+                    nextState = States.idleSwim;
+                }
+                break;
+
+            case States.idleSwim:
+                if (playerInputs.direction.magnitude >= 0.01f)
+                {
+                    nextState = States.swimming;
+                }
+                break;
             case States.minigame:            
             break;
             case States.minigame2:            
