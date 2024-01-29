@@ -6,11 +6,13 @@ public class PlayerStates : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] PlayerInputs playerInputs;
+    [SerializeField] PlayerMovement playerMovement;
 
     public enum States
     {
         idle,
         walking,
+        swimming,
         minigame,
         minigame2,
         freezingUI
@@ -33,6 +35,16 @@ public class PlayerStates : MonoBehaviour
             if(playerInputs.direction.magnitude <= 0.01f)
             {
                 nextState = States.idle;
+            }
+            if(playerMovement.waterMovement)
+            {
+                nextState = States.swimming;
+            }
+            break;
+            case States.swimming:
+            if(!playerMovement.waterMovement)
+            {
+                nextState = States.walking;
             }
             break;
             case States.minigame:            

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BaseOxygenExclude : MonoBehaviour
 {
+    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] Animator animator;
     public bool exclude = false;
 
     
@@ -12,6 +14,8 @@ public class BaseOxygenExclude : MonoBehaviour
         if(collider.CompareTag("Player"))
         {
             exclude = true;
+            playerMovement.waterMovement = false;
+            animator.SetBool("waterMovement",false);
         }
     }
 
@@ -20,6 +24,8 @@ public class BaseOxygenExclude : MonoBehaviour
         if(collider.CompareTag("Player"))
         {
             exclude = false;
+            playerMovement.waterMovement = true;
+            animator.SetBool("waterMovement",true);
         }
     }
     

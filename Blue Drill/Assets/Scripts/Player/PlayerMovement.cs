@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, IMoveable
     private float currentSpeed;
     private float turnSmoothVelocity;
     private Vector3 velocity;
+    public bool waterMovement = true;
 
 
     public void Move()
@@ -26,12 +27,21 @@ public class PlayerMovement : MonoBehaviour, IMoveable
         {
             GetDirection();
             animator.SetFloat("Speed", currentSpeed);
+            if(waterMovement)
+            {  
+                animator.SetBool("waterMovement",true);
+            }   
+            
         }
         else
         {
             // If not moving, reset the vertical velocity (to prevent constant falling)
             velocity.y = 0f;
             animator.SetFloat("Speed", 0f);
+            if(!waterMovement)
+            {
+                animator.SetBool("waterMovement",false);
+            }
         }
     }
 
