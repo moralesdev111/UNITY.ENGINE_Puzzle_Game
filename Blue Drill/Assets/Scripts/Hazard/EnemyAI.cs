@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
-    private GameObject target;
+    private Equipment[] targets;
+    private Equipment target;
 
-    void Start()
+
+    void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Equipment");
-        
+        targets = FindObjectsOfType<Equipment>();
+        if(targets.Length > 0)
+        {
+            navMeshAgent.destination = AssignTarget().transform.position;
+        }   
     }
 
-    void Update(){
-        navMeshAgent.destination = target.transform.position;
+     private Equipment AssignTarget()
+    {
+        int randomIndex = GetRandomTarget();
+        return target = targets[randomIndex];
     }
 
+    private int GetRandomTarget()
+    {
+        return Random.Range(0,targets.Length);
+    }
 }
