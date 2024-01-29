@@ -9,8 +9,10 @@ public class Oxygen : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI oxygenValue;
     [SerializeField] BaseOxygenExclude baseOxygenExclude;
+    [SerializeField] HandleDeath handleDeath;
     public float maxOxygen = 50;
     public float currentOxygen;
+
 
     void Start()
     {
@@ -21,7 +23,7 @@ public class Oxygen : MonoBehaviour
     void Update()
     {
         ManageOxygen();
-        Death();
+        handleDeath.Die();
     }
 
     private void ManageOxygen()
@@ -30,7 +32,7 @@ public class Oxygen : MonoBehaviour
         {
             if (currentOxygen > 0 && currentOxygen <= maxOxygen)
             {
-                currentOxygen -= Time.deltaTime *20;
+                currentOxygen -= Time.deltaTime / 5;
                 oxygenValue.text = "Oxygen " + currentOxygen.ToString("F1");
             }
         }
@@ -50,11 +52,5 @@ public class Oxygen : MonoBehaviour
         oxygenValue.text = "Oxygen " + currentOxygen.ToString("F1");
     }
 
-    private void Death()
-    {
-        if(currentOxygen == 0f)
-        {
-            Application.Quit();
-        }
-    }
+    
 }
