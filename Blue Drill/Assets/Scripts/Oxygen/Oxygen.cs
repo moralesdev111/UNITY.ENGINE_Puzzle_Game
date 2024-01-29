@@ -32,7 +32,7 @@ public class Oxygen : MonoBehaviour
         {
             if (currentOxygen > 0 && currentOxygen <= maxOxygen)
             {
-                currentOxygen -= Time.deltaTime / 5;
+                currentOxygen -= Time.deltaTime / 10;
                 oxygenValue.text = "Oxygen " + currentOxygen.ToString("F1");
             }
         }
@@ -47,7 +47,7 @@ public class Oxygen : MonoBehaviour
 
     private void RefillOxygen()
     {
-        currentOxygen += Time.deltaTime / 10;
+        currentOxygen += Time.deltaTime / 5;
         currentOxygen = Mathf.Clamp(currentOxygen, 0, maxOxygen);
         oxygenValue.text = "Oxygen " + currentOxygen.ToString("F1");
     }
