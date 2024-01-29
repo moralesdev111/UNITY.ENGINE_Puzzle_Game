@@ -15,6 +15,7 @@ public class DoorAnimations : MonoBehaviour
         {
             animator.SetBool("Closing",false);
             animator.SetBool("Opening",true);
+            AudioManager.Instance.PlaySFX("door");
 
         }
     }
@@ -25,6 +26,7 @@ public class DoorAnimations : MonoBehaviour
             Debug.Log("Collider exited");
             animator.SetBool("Opening",false);
             animator.SetBool("Closing",true);
+            AudioManager.Instance.PlaySFX("door");
 
         }
     }

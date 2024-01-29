@@ -16,9 +16,18 @@ public class BaseOxygenExclude : MonoBehaviour
             exclude = true;
             playerMovement.waterMovement = false;
             animator.SetBool("waterMovement",false);
+            
         }
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.CompareTag("Player"))
+        {
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic("base");
+        }
+    }
     private void OnTriggerExit(Collider collider)
     {
         if(collider.CompareTag("Player"))
@@ -26,6 +35,8 @@ public class BaseOxygenExclude : MonoBehaviour
             exclude = false;
             playerMovement.waterMovement = true;
             animator.SetBool("waterMovement",true);
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic("underwater");
         }
     }
     

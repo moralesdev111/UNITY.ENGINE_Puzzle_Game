@@ -17,11 +17,12 @@ public class Equipment : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        maxHealth = Mathf.Clamp(maxHealth,0,5);
+        
     }
 
     private void Update()
     {
+        currentHealth = Mathf.Clamp(currentHealth,0,5);
         equipmentColorChange.UpdateColor();
         if(currentHealth < 1)
         {
@@ -50,9 +51,10 @@ public class Equipment : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(1);
             collision.gameObject.SetActive(false);
             collision.gameObject.transform.position = parentPosition.transform.position;
+            TakeDamage(1);
+            
         }
     }
    

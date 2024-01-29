@@ -26,6 +26,7 @@ public class TriggerMinigame : MonoBehaviour
                     startDrillingCanvas.SetActive(true);
                     if (Input.GetKey(KeyCode.Z))
                     {
+                        AudioManager.Instance.PlaySFX("drill");
                         minigame.cantStartFirstGame = false;
                         minigame.gameInprogress = true;
                         startDrillingCanvas.SetActive(false);
