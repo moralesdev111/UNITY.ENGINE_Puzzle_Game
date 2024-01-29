@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Equipment : MonoBehaviour
 {
     
     public int maxHealth = 5;
     public int currentHealth;
     [SerializeField] EquipmentColorChange equipmentColorChange;
+    [SerializeField] GameObject parentPosition;
+    [SerializeField] EnemyWave enemyWave;
  
     
 
@@ -20,6 +23,13 @@ public class Equipment : MonoBehaviour
     private void Update()
     {
         equipmentColorChange.UpdateColor();
+        if(currentHealth < 1)
+        {
+            enemyWave.canSpawn = false;
+        }
+        else{
+            enemyWave.canSpawn = true;
+        }
     }
 
     private int TakeDamage(int damageAmount)
@@ -41,6 +51,8 @@ public class Equipment : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
+            collision.gameObject.SetActive(false);
+            collision.gameObject.transform.position = parentPosition.transform.position;
         }
     }
    

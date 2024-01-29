@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] GameObject avalancheObjectPrefab;
-    public int poolSize = 5;
-    [SerializeField] Transform spawnPosition;
+    [SerializeField] GameObject enemy;
+    public int poolSize = 10;
+    public float spawnTimer = 12f;
+    
     public GameObject[] pool;
 
     void Awake()
@@ -19,8 +20,9 @@ public class ObjectPool : MonoBehaviour
 
         for(int i = 0; i < pool.Length; i++)
         {
-            pool[i] = Instantiate(avalancheObjectPrefab,spawnPosition);
+            pool[i] = Instantiate(enemy,this.transform);
             pool[i].SetActive(false);
         }
     }
+    
 }
