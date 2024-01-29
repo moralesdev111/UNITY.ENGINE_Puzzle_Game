@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Target");
+        target = GameObject.FindGameObjectWithTag("Equipment");
         
     }
 
