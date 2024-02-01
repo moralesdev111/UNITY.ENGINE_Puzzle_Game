@@ -6,7 +6,7 @@ public class BaseOxygenExclude : MonoBehaviour
 {
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] Animator animator;
-    public bool exclude = false;
+    public bool exclude = true;
 
     
     private void OnTriggerStay(Collider collider)

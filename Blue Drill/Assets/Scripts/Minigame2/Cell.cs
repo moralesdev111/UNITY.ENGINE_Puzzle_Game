@@ -12,9 +12,11 @@ public class Cell : MonoBehaviour
     [SerializeField] CellNavigation cellNavigation;
     [SerializeField] CellUI cellUI;
     [SerializeField] Status status;
+    [SerializeField] GridManagerMethods gridManagerMethods;
    
     public GameObject currentCell; // Keep track of the current cell coordinates
     public GameObject[] bombCells;
+    public GameObject[] takenCells = new GameObject[3];
     public GameObject rewardCell;
 
 
@@ -77,4 +79,41 @@ IEnumerator EndGameProcess()
         status.EndGame();
     }
     
+
+     public Vector2Int RandomizeCell()
+    {
+        int randomColumn, randomRow;
+        Vector2Int randomPlacement;
+
+        do
+        {
+            randomColumn = Random.Range(0, 5);
+            randomRow = Random.Range(0, 5);
+
+            randomPlacement = new Vector2Int(randomColumn, randomRow);
+        } while (IsCellTaken(randomPlacement));
+
+        return randomPlacement;
+    }
+
+    public bool IsCellTaken(Vector2Int cell)
+    {
+        // Check if the cell is in the takenCells array
+        for (int i = 0; i < takenCells.Length; i++)
+        {
+            if (takenCells[i] != null)
+            {
+                Vector2Int takenCellPosition = gridManagerMethods.GetCellCoordinateFromGameObject(takenCells[i]);
+
+                if (cell == takenCellPosition)
+                {
+                    // The cell is taken, return true
+                    return true;
+                }
+            }
+        }
+
+        // The cell is not taken, return false
+        return false;
+    }
 }

@@ -3466,7 +3466,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 630501606287458955, guid: 14b2036eec4bf244c865d56438d77677, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.71
+      value: -8.74
       objectReference: {fileID: 0}
     - target: {fileID: 630501606287458955, guid: 14b2036eec4bf244c865d56438d77677, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5279,7 +5279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951528005}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18135701, y: 0.8093399, z: -0.32107008, w: 0.4571571}
+  m_LocalRotation: {x: -0.15284248, y: 0.84592193, z: -0.3355824, w: -0.38527882}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5419,8 +5419,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1907481, y: 0.8025451, z: -0.33769578, w: 0.45331907}
-  m_LocalPosition: {x: -4.4480286, y: 10, z: -1.633894}
+  m_LocalRotation: {x: -0.16075695, y: 0.83882004, z: -0.3529596, w: -0.3820442}
+  m_LocalPosition: {x: -10.210274, y: 10, z: -0.3724103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7092,7 +7092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282295070}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19074807, y: 0.8025451, z: -0.33769575, w: 0.4533191}
+  m_LocalRotation: {x: -0.16075695, y: 0.83882004, z: -0.35295957, w: -0.38204423}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8978,8 +8978,13 @@ MonoBehaviour:
   cellNavigation: {fileID: 1667498417}
   cellUI: {fileID: 1667498419}
   status: {fileID: 1667498420}
+  gridManagerMethods: {fileID: 1667498416}
   currentCell: {fileID: 0}
   bombCells: []
+  takenCells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rewardCell: {fileID: 0}
 --- !u!114 &1667498416
 MonoBehaviour:
@@ -8996,6 +9001,7 @@ MonoBehaviour:
   cellSelector: {fileID: 1667498415}
   gridManager: {fileID: 1667498413}
   status: {fileID: 1667498420}
+  cell: {fileID: 1667498415}
 --- !u!114 &1667498417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9058,6 +9064,8 @@ MonoBehaviour:
   status: {fileID: 1667498420}
   playerStates: {fileID: 1131483088}
   minigame: {fileID: 1675573966}
+  cellSetup: {fileID: 1667498418}
+  cell: {fileID: 1667498415}
   lives: 2
   gameInprogress: 0
   canStart: 1
@@ -9929,7 +9937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717777817}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20008971, y: 0.79538375, z: -0.354234, w: 0.44927397}
+  m_LocalRotation: {x: -0.16862981, y: 0.831335, z: -0.37024534, w: -0.37863508}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11218,7 +11226,7 @@ Transform:
   m_GameObject: {fileID: 1874187999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4480286, y: 10, z: -1.633894}
+  m_LocalPosition: {x: -10.210274, y: 10, z: -0.3724103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12229,7 +12237,7 @@ PrefabInstance:
       objectReference: {fileID: 963194228}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.26
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 1674326216762679012, guid: ca21db6c5ceb95f4e94d17c3ab0263c8, type: 3}
       propertyPath: m_LocalPosition.y

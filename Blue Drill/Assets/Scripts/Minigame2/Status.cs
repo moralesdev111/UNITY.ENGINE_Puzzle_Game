@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Status : MonoBehaviour
     [SerializeField] Status status;
     [SerializeField] PlayerStates playerStates;
     [SerializeField] Minigame minigame;
+    [SerializeField] CellSetup cellSetup;
+    [SerializeField] Cell cell;
 
     public int lives = 2;
     public bool gameInprogress = false;
@@ -18,8 +21,11 @@ public class Status : MonoBehaviour
     public void StartGame()
     {
         canStart = false;
-        gridManagerMethods.ResetCells();
+        gridManagerMethods.VisuallyResetCells();
         gridManager.modifiedCells.Clear();
+        Array.Clear(cell.takenCells,0, cell.takenCells.Length);
+        cellSetup.SetBombCells();
+        cellSetup.SetRewardCell();
         status.gameInprogress = true;
         gridManager.canvas.gameObject.SetActive(true);
     }

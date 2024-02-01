@@ -12,8 +12,7 @@ public class CellSetup : MonoBehaviour
     private void Start()
     {
         SetStartCell();       
-        SetBombCells();
-        SetRewardCells();
+        
     }
 
     private void SetStartCell()
@@ -30,21 +29,27 @@ public class CellSetup : MonoBehaviour
             }
     }
 
-     private void SetBombCells()
+     public void SetBombCells()
     {
         cell.bombCells = new GameObject[2];
-        cell.bombCells[0] = gridManagerMethods.GetCellFromCoordinate(new Vector2Int(4,4));
+        cell.bombCells[0] = gridManagerMethods.GetCellFromCoordinate(cell.RandomizeCell());
         Transform child = cell.bombCells[0].transform.GetChild(0);
         child.gameObject.SetActive(true);
-        cell.bombCells[1] = gridManagerMethods.GetCellFromCoordinate(new Vector2Int(0,0));
+        cell.takenCells[0] = cell.bombCells[0];
+        cell.bombCells[1] = gridManagerMethods.GetCellFromCoordinate(cell.RandomizeCell());
         Transform child2 = cell.bombCells[1].transform.GetChild(0);
         child2.gameObject.SetActive(true);
+        cell.takenCells[1] = cell.bombCells[1];
     }
 
-    private void SetRewardCells()
+    public void SetRewardCell()
     {
-        cell.rewardCell = gridManagerMethods.GetCellFromCoordinate(new Vector2Int(1,1));
+        cell.rewardCell = gridManagerMethods.GetCellFromCoordinate(cell.RandomizeCell());
         Transform child = cell.rewardCell.transform.GetChild(1);
         child.gameObject.SetActive(true);
+        cell.takenCells[2] = cell.rewardCell;
     }
+
+  
+
 }
