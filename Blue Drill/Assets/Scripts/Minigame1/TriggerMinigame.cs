@@ -8,6 +8,8 @@ public class TriggerMinigame : MonoBehaviour
     [SerializeField] GameObject startDrillingCanvas;
     [SerializeField] Minigame minigame;
     [SerializeField] GridManager gridManager;
+    [SerializeField] EquipmentManager equipmentManager;
+    [SerializeField] Canvas goFixPipesCanvas;
 
     void OnTriggerStay(Collider collider)
     {
@@ -26,12 +28,21 @@ public class TriggerMinigame : MonoBehaviour
                     startDrillingCanvas.SetActive(true);
                     if (Input.GetKey(KeyCode.Z))
                     {
-                        AudioManager.Instance.PlaySFX("drill");
+                        if(equipmentManager.canDrill)
+                        {
+                            AudioManager.Instance.PlaySFX("drill");
                         minigame.cantStartFirstGame = false;
                         minigame.gameInprogress = true;
                         startDrillingCanvas.SetActive(false);
                         Debug.Log("Game Started"); // trigger minigame player state
                         playerStates.currentState = PlayerStates.States.minigame;
+                        }
+                        else
+                        {
+                            goFixPipesCanvas.gameObject.SetActive(true);
+                            StartCoroutine(TurnOffGoFixPipesCanvas());
+                        }
+                        
                     }
                 }
             }
@@ -49,5 +60,11 @@ public class TriggerMinigame : MonoBehaviour
     void OnTriggerExit(Collider collider)
     {
         startDrillingCanvas.SetActive(false);
+    }
+
+    IEnumerator TurnOffGoFixPipesCanvas()
+    {
+        yield return new WaitForSeconds(2f);
+        goFixPipesCanvas.gameObject.SetActive(false);
     }
 }

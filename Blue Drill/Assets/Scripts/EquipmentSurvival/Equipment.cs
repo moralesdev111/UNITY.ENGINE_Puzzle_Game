@@ -11,6 +11,7 @@ public class Equipment : MonoBehaviour
     [SerializeField] EquipmentColorChange equipmentColorChange;
     [SerializeField] GameObject parentPosition;
     [SerializeField] EnemyWave enemyWave;
+
  
     
 
@@ -52,6 +53,15 @@ public class Equipment : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SetActive(false);
+            if(currentHealth > 1)
+            {
+                AudioManager.Instance.PlaySFX("oilCrash");
+            }
+            else{
+                AudioManager.Instance.PlaySFX("crash"); 
+            }
+            
+
             collision.gameObject.transform.position = parentPosition.transform.position;
             TakeDamage(1);
             
