@@ -13,6 +13,7 @@ public class Cell : MonoBehaviour
     [SerializeField] CellUI cellUI;
     [SerializeField] Status status;
     [SerializeField] GridManagerMethods gridManagerMethods;
+    [SerializeField] OilPerHour oilPerHour;
    
     public GameObject currentCell; // Keep track of the current cell coordinates
     public GameObject[] bombCells;
@@ -64,6 +65,7 @@ public class Cell : MonoBehaviour
             }
             else if (currentCell == rewardCell)
             {
+                oilPerHour.canStartOilRatePerHour = true;
                  moneyBank.AddToBank(drillItem.yield);
         oilBank.AddToBank(drillItem.yield);
                 StartCoroutine(EndGameProcess());

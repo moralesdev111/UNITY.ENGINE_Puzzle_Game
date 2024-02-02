@@ -16,4 +16,4 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 81fd62a5c2dc53f48b078fd55cd3ef53, type: 2}
   gameObject: {fileID: 6931697498505504035, guid: 14b2036eec4bf244c865d56438d77677, type: 3}
   itemType: 0
-  yield: 15
+  yield: 100
