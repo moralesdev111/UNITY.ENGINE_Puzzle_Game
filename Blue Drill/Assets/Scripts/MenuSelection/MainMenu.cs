@@ -8,17 +8,24 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button playButton;
     [SerializeField] Button quitButton;
+    [SerializeField] Button creditsButton;
     [SerializeField] SceneLoader sceneLoader;
 
     void Start()
     {
         playButton.onClick.AddListener(HandlePlayButton);
-        quitButton.onClick.AddListener(HandleQuitButton);        
+        quitButton.onClick.AddListener(HandleQuitButton);
+        creditsButton.onClick.AddListener(HandleCreditsButton);        
     }
 
     private void HandlePlayButton()
     {
         sceneLoader.ChangeScene(1);
+    }
+
+    private void HandleCreditsButton()
+    {
+        sceneLoader.ChangeScene(2);
     }
 
     private void HandleQuitButton()

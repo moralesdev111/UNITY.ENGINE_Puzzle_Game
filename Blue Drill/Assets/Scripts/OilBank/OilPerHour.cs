@@ -17,22 +17,21 @@ public class OilPerHour : MonoBehaviour
     void Update()
     {
         oilPerHourUIText.text = "Oil Rate/Hour: " + oilPerHour.ToString("F1");
-        minutes += Time.deltaTime;
-        hours = MinuteToHours();
-        
 
         if(canStartOilRatePerHour)
         {
+            minutes += Time.deltaTime;
+            hours = MinuteToHours();
             oilPerHour = OilPerHourCalculations();
             if(oilPerHour >= 200)
             {
                 oilPerHourUIText.color = Color.blue;
             }
-            else if(oilPerHour >150 && oilPerHour <200)
+            else if(oilPerHour >250 && oilPerHour <400)
             {
                 oilPerHourUIText.color = Color.black;
             }
-            else if (oilPerHour <=150)
+            else if (oilPerHour <=250)
             {
                 oilPerHourUIText.color= Color.red;
             }
