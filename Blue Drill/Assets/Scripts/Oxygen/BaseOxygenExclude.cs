@@ -24,8 +24,8 @@ public class BaseOxygenExclude : MonoBehaviour
     {
         if(collider.CompareTag("Player"))
         {
-            AudioManager.Instance.StopMusic();
-            AudioManager.Instance.PlayMusic("base");
+            AudioManager.Instance.StopMusic(1);
+            AudioManager.Instance.PlayMusic("base",0);
         }
     }
     private void OnTriggerExit(Collider collider)
@@ -35,8 +35,8 @@ public class BaseOxygenExclude : MonoBehaviour
             exclude = false;
             playerMovement.waterMovement = true;
             animator.SetBool("waterMovement",true);
-            AudioManager.Instance.StopMusic();
-            AudioManager.Instance.PlayMusic("underwater");
+            AudioManager.Instance.StopMusic(0);
+            AudioManager.Instance.PlayMusic("underwater",1);
         }
     }
     

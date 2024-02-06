@@ -30,7 +30,7 @@ public class TriggerMinigame : MonoBehaviour
                     {
                         if(equipmentManager.canDrill)
                         {
-                            AudioManager.Instance.PlaySFX("drill");
+                            AudioManager.Instance.PlaySFX("drill",1);
                         minigame.cantStartFirstGame = false;
                         minigame.gameInprogress = true;
                         startDrillingCanvas.SetActive(false);

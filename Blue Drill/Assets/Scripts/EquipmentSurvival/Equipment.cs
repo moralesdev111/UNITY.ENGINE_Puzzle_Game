@@ -55,10 +55,10 @@ public class Equipment : MonoBehaviour
             collision.gameObject.SetActive(false);
             if(currentHealth > 1)
             {
-                AudioManager.Instance.PlaySFX("oilCrash");
+                AudioManager.Instance.PlaySFX("oilCrash",2);
             }
             else{
-                AudioManager.Instance.PlaySFX("crash"); 
+                AudioManager.Instance.PlaySFX("crash",2); 
             }
             
 

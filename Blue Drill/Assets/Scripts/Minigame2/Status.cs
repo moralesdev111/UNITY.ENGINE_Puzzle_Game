@@ -32,7 +32,7 @@ public class Status : MonoBehaviour
     public void EndGame()
     {
         
-        AudioManager.Instance.PlaySFX("drill");
+        AudioManager.Instance.PlaySFX("drill",1);
         minigame.cantStartFirstGame = true;
         gameInprogress = false;
         gridManager.canvas.gameObject.SetActive(false);
