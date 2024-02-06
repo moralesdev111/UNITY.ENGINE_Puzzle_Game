@@ -42,7 +42,6 @@ public class MoneyBank : Bank
     {
         currentBalance += pendingBalance;
         pendingBalance = 0;
-        oilBank.currentBalance = 0;
     }
 
 }

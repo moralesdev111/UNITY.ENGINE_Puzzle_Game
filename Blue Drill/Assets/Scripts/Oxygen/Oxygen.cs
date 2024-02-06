@@ -47,7 +47,7 @@ public class Oxygen : MonoBehaviour
 
     private void RefillOxygen()
     {
-        currentOxygen += Time.deltaTime / 5;
+        currentOxygen += Time.deltaTime / 2;
         currentOxygen = Mathf.Clamp(currentOxygen, 0, maxOxygen);
         oxygenValue.text = "Oxygen " + currentOxygen.ToString("F1");
     }

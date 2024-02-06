@@ -10401,6 +10401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471286920}
   - component: {fileID: 1471286919}
+  - component: {fileID: 1471286921}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10423,7 +10424,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 11400000, guid: e5e0ad29ba814ac4aa751bba09be00dd, type: 2}
   oilPerHour: {fileID: 1204397819}
   loseConditionCanvas: {fileID: 1077964177}
-  loseCondition: 30
+  loseCondition: 40
 --- !u!4 &1471286920
 Transform:
   m_ObjectHideFlags: 0
@@ -10439,6 +10440,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471286921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471286918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e6fe1002d044d4babdd85d87b24451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 11400000, guid: e5e0ad29ba814ac4aa751bba09be00dd, type: 2}
+  moneyBank: {fileID: 276345206}
+  winCondition: 500
 --- !u!1 &1506744994
 GameObject:
   m_ObjectHideFlags: 0
