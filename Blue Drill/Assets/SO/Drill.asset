@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Drill
   itemSprite: {fileID: 21300000, guid: 81fd62a5c2dc53f48b078fd55cd3ef53, type: 2}
-  gameObject: {fileID: 6931697498505504035, guid: 14b2036eec4bf244c865d56438d77677, type: 3}
+  gameObject: {fileID: 1000012695253110, guid: f5a2d19d564785d45a6207078113bcaa, type: 3}
   itemType: 0
   yield: 100

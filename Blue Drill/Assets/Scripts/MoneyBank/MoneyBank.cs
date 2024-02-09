@@ -28,7 +28,7 @@ public class MoneyBank : Bank
 
     private void Update()
     {
-        moneyText.text = "Coin: " + currentBalance.ToString();
+        moneyText.text = "Gold: " + currentBalance.ToString();
         pendingTransactionsText.text = " One Pending Transaction of Net Value: " + pendingBalance.ToString();
         laptopMoneyText.text = currentBalance.ToString();
     }
